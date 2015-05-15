@@ -1,0 +1,7 @@
+<h3>SoftUni Social Network</h3>
+
+<span ng-if="authService.isLoggedIn()">
+    <a href="#/">Home</a>
+    <span><b>Welcome, {{authService.getCurrentUser().userName}}</b></span>
+    <a href="#/" ng-click="logout()">Logout</a>
+</span>

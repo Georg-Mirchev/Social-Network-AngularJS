@@ -1,0 +1,11 @@
+<form id="loginForm" name="loginForm" ng-submit="login(userData)">
+    <h2>Login</h2>
+
+    <label for="username">Username:</label>
+    <input type="text" id="username" ng-model="userData.username" required="required"/>
+
+    <label for="password">Password:</label>
+    <input type="password" id="password" ng-model="userData.password" required="required"/>
+
+    <button type="submit">Login</button>
+</form>

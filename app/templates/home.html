@@ -1,0 +1,7 @@
+<h3 ng-if="authService.isLoggedIn()">Home (News Feed Page)</h3>
+
+<div ng-if="authService.isNotLoggedIn()">
+    <div ng-include="'templates/loginForm.html'" ng-controller="LoginController"></div>
+
+    <div ng-include="'templates/registerForm.html'" ng-controller="RegisterController"></div>
+</div>
