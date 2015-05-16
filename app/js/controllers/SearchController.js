@@ -17,18 +17,23 @@ socialNetworkApp.controller('SearchController',
             }
         };
 
-        $scope.focus = function () {
+        $scope.showHideResults = function () {
             $timeout(function () {
-                $scope.showSearchResults = true;
+                $scope.showSearchResults = !$scope.showSearchResults;
             }, 500);
         };
 
-        $scope.blur = function () {
-            $timeout(function () {
-                $scope.showSearchResults = false;
-            }, 500);
+        //$scope.focus = function () {
+        //    $timeout(function () {
+        //        $scope.showSearchResults = true;
+        //    }, 500);
+        //};
 
-        };
+        //$scope.blur = function () {
+        //    $timeout(function () {
+        //        $scope.showSearchResults = false;
+        //    }, 500);
+        //};
 
         $scope.clickTest = function () {
             console.log('clicked')
