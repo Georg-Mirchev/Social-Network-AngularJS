@@ -1,7 +1,23 @@
-<h3 ng-if="authService.isLoggedIn()">Home (News Feed Page)</h3>
+<div ng-if="authService.isLoggedIn()">
+    <h3 >Home (News Feed Page)</h3>
+
+
+    <label for="search">Search: </label>
+    <input type="text" id="search" ng-model="userNameSearch" ng-change="searchUser(userNameSearch)" required/>
+    <ul>
+        <li ng-repeat="searchResult in searchObj">
+            <img ng-if="searchResult.profileImageData != 'null' && searchResult.profileImageData.length > 10" class="profileImageSearch"
+                 ng-src="data:image/jpeg;base64,{{searchResult.profileImageData.split('data:image/jpeg;base64,')
+                 [searchResult.profileImageData.split('data:image/jpeg;base64,').length - 1]}}"/>
+            {{searchResult.name}}
+        </li>
+    </ul>
+</div>
+
 
 <div ng-if="authService.isNotLoggedIn()">
     <div ng-include="'templates/loginForm.html'" ng-controller="LoginController"></div>
 
     <div ng-include="'templates/registerForm.html'" ng-controller="RegisterController"></div>
 </div>
+
