@@ -18,13 +18,15 @@ socialNetworkApp.controller('SearchController',
         };
 
         $scope.focus = function () {
-            $scope.showSearchResults = true;
+            $timeout(function () {
+                $scope.showSearchResults = true;
+            }, 500);
         };
 
         $scope.blur = function () {
             $timeout(function () {
                 $scope.showSearchResults = false;
-            }, 1000);
+            }, 500);
 
         };
 
