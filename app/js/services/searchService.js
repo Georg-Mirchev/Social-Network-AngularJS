@@ -6,12 +6,13 @@ socialNetworkApp.factory('searchService',
 
         return {
             searchUser: function (searchData, success, error) {
-                var req = {
-                    method: 'GET',
-                    url: serviceUrl + searchData,
-                    headers: authService.getAuthHeaders()
-                };
-                $http(req).success(success).error(error);
+                $http.get(serviceUrl + searchData,
+                    {
+                        headers: authService.getAuthHeaders()
+                    })
+                    .success(success)
+                    .error(error)
             }
         }
+
     });

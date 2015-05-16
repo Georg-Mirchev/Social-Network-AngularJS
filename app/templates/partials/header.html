@@ -4,4 +4,21 @@
     <a href="#/">Home</a>
     <span><b>Welcome, {{authService.getCurrentUser().userName}}</b></span>
     <a href="#/" ng-click="logout()">Logout</a>
+
+    <div id="searchDiv" ng-controller="SearchController">
+        <input type="text" ng-model="userNameSearch" ng-change="searchUser(userNameSearch)" placeholder="Search..."
+               required ng-focus="focus()" ng-blur="blur()"/>
+
+        <div id="searchResults" ng-show="showSearchResults">
+            <ul>
+                <li ng-repeat="searchResult in searchObj">
+                    <img class="profileImageSearch" ng-if="checkUrl(searchResult)"
+                         ng-src="data:image/jpeg;base64,{{formatImg(searchResult)}}"/>
+                    {{searchResult.name}}
+                </li>
+            </ul>
+            <span ng-click="clickTest()" ng-if="searchObj">{{searchObj.length}} results total</span>
+        </div>
+    </div>
+
 </span>
