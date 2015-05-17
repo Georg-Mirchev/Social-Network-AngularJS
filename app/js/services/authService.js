@@ -24,10 +24,6 @@ socialNetworkApp.factory('authService',
                 return sessionStorage.currentUser != undefined;
             },
 
-            isNotLoggedIn: function () {
-                return sessionStorage.currentUser == undefined;
-            },
-
             getCurrentUser: function () {
                 var userStorageData = sessionStorage.currentUser;
                 if (userStorageData) {

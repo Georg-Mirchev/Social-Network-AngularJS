@@ -8,5 +8,5 @@ socialNetworkApp.controller('AppController',
         $scope.logout = function () {
             authService.logout();
             //notification
-        }
+        };
     });

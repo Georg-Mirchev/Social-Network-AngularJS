@@ -9,7 +9,17 @@ var socialNetworkApp = angular
                 templateUrl: 'templates/home.html',
                 controller: 'HomeController'
             })
+            .when('/test', {
+                template: '<div>Test</div>'
+            })
             .otherwise({
                 redirectTo: '/'
             });
+    })
+    .run(function ($rootScope, $location, authService) {
+        $rootScope.$on('$locationChangeStart', function () {
+            if ($location.path().indexOf('/') != -1 && !authService.isLoggedIn()) {
+                $location.path('/');
+            }
+        });
     });

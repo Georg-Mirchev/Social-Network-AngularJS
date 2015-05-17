@@ -20,36 +20,19 @@ socialNetworkApp.controller('SearchController',
         $scope.showHideResults = function () {
             $timeout(function () {
                 $scope.showSearchResults = !$scope.showSearchResults;
-            }, 500);
+            }, 750);
         };
 
-        //$scope.focus = function () {
-        //    $timeout(function () {
-        //        $scope.showSearchResults = true;
-        //    }, 500);
-        //};
-
-        //$scope.blur = function () {
-        //    $timeout(function () {
-        //        $scope.showSearchResults = false;
-        //    }, 500);
-        //};
+        $scope.checkAndFormatImgUrl = function (searchResult) {
+            if (searchResult.profileImageData &&
+                searchResult.profileImageData != 'null' &&
+                searchResult.profileImageData.length > 50) {
+                return 'data:image/jpeg;base64,' + searchResult.profileImageData.split('data:image/jpeg;base64,')
+                    [searchResult.profileImageData.split('data:image/jpeg;base64,').length - 1];
+            }
+        };
 
         $scope.clickTest = function () {
             console.log('clicked')
         };
-
-        $scope.checkUrl = function (searchResult) {
-            if (searchResult.profileImageData) {
-                return searchResult.profileImageData != 'null' && searchResult.profileImageData.length > 50
-            }
-        };
-
-        $scope.formatImg = function (searchResult) {
-            if (searchResult.profileImageData) {
-                return searchResult.profileImageData.split('data:image/jpeg;base64,')
-                    [searchResult.profileImageData.split('data:image/jpeg;base64,').length - 1];
-            }
-        }
-
     });
