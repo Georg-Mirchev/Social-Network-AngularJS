@@ -5,8 +5,8 @@ socialNetworkApp.controller('AppController',
         $scope.authService = authService;
 
         //$scope.location = $location;
-        $scope.logout = function () {
-            authService.logout();
-            //notification
-        };
+        //$scope.logout = function () {
+        //    authService.logout();
+        //    //notification
+        //};
     });

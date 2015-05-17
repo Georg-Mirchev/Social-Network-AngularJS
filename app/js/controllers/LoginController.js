@@ -7,6 +7,7 @@ socialNetworkApp.controller('LoginController',
             authService.login(userData,
                 function success(data) {
                     sessionStorage.currentUser = JSON.stringify(data);
+                    console.log('Login.');
                 },
                 function error(error) {
                     console.log(error.error_description);

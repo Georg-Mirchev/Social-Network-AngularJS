@@ -9,6 +9,7 @@ socialNetworkApp.factory('searchService',
                 $http.get(serviceUrl + searchData,
                     {
                         headers: authService.getAuthHeaders()
+                        //,ignoreLoadingBar: true
                     })
                     .success(success)
                     .error(error)

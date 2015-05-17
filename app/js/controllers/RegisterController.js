@@ -7,6 +7,7 @@ socialNetworkApp.controller('RegisterController',
             authService.register(userData,
                 function success(data) {
                     sessionStorage.currentUser = JSON.stringify(data);
+                    console.log('Register.');
                 },
                 function error(error) {
                     var errorMsg = error.modelState[Object.keys(error.modelState)[0]][0];

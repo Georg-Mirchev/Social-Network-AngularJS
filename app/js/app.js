@@ -1,9 +1,10 @@
 'use strict';
 
 var socialNetworkApp = angular
-    .module('socialNetworkApp', ['ngRoute'])
+    .module('socialNetworkApp', ['ngRoute', 'angular-loading-bar'])
     .constant('baseServiceUrl', 'http://softuni-social-network.azurewebsites.net/api')
-    .config(function ($routeProvider) {
+    .config(function ($routeProvider, cfpLoadingBarProvider) {
+        cfpLoadingBarProvider.includeSpinner = false;
         $routeProvider
             .when('/', {
                 templateUrl: 'templates/home.html',
