@@ -5,13 +5,12 @@ socialNetworkApp.controller('SearchController',
 
         $scope.searchUser = function (searchUser) {
             if (searchUser != undefined) {
-                searchService.searchUser(searchUser,
-                    function success(data) {
+                searchService.searchUserWithQ(searchUser)
+                    .then(function (data) {
                         $scope.searchObj = data;
-                    },
-                    function error(error) {
+                    }, function (error) {
                         console.log(error);
-                    });
+                    })
             } else {
                 $scope.searchObj = '';
             }
@@ -30,9 +29,5 @@ socialNetworkApp.controller('SearchController',
                 return 'data:image/jpeg;base64,' + searchResult.profileImageData.split('data:image/jpeg;base64,')
                     [searchResult.profileImageData.split('data:image/jpeg;base64,').length - 1];
             }
-        };
-
-        $scope.clickTest = function () {
-            console.log('clicked')
         };
     });

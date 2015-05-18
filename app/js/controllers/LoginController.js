@@ -1,25 +1,15 @@
 'use strict';
 
 socialNetworkApp.controller('LoginController',
-    function LoginController($scope, $location, authService) {
+    function LoginController($scope, $location, authService, $http) {
 
         $scope.login = function (userData) {
-            authService.login(userData,
-                function success(data) {
-                    sessionStorage.currentUser = JSON.stringify(data);
-                    console.log('Login.');
-                },
-                function error(error) {
-                    console.log(error.error_description);
-                }
-            );
-        };
-
-        $scope.loginWithQ = function (userData) {
-            authService.loginWithQ(userData)
+            authService.login(userData)
                 .then(function (data) {
                     sessionStorage.currentUser = JSON.stringify(data);
-                    console.log('Logged in with Q!');
+                    $http.defaults.headers.common.Authorization =
+                        'Bearer ' + authService.getCurrentUser().access_token;
+                    console.log('Logged in.');
                 }, function (error) {
                     console.log(error.error_description);
                 })

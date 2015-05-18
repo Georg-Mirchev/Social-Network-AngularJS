@@ -1,19 +1,23 @@
 'use strict';
 
 socialNetworkApp.factory('searchService',
-    function searchService($http, baseServiceUrl, authService) {
-        var serviceUrl = baseServiceUrl + '/users/search?searchTerm=' ;
+    function searchService($http, $q, baseServiceUrl, authService) {
+        var serviceUrl = baseServiceUrl + '/users/search?searchTerm=';
 
         return {
-            searchUser: function (searchData, success, error) {
+            searchUserWithQ: function (searchData) {
+                var deferred = $q.defer();
                 $http.get(serviceUrl + searchData,
                     {
                         headers: authService.getAuthHeaders()
-                        //,ignoreLoadingBar: true
                     })
-                    .success(success)
-                    .error(error)
+                    .success(function (data) {
+                        deferred.resolve(data)
+                    })
+                    .error(function (error) {
+                        deferred.reject(error)
+                    });
+                return deferred.promise;
             }
         }
-
     });

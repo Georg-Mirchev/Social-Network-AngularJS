@@ -1,12 +1,10 @@
 'use strict';
 
 socialNetworkApp.controller('AppController',
-    function AppController($scope, $location, authService) {
+    function AppController($scope, $http, authService) {
         $scope.authService = authService;
 
-        //$scope.location = $location;
-        //$scope.logout = function () {
-        //    authService.logout();
-        //    //notification
-        //};
+        if (sessionStorage['currentUser'] != undefined) {
+            $http.defaults.headers.common.Authorization = 'Bearer ' + authService.getCurrentUser().access_token;
+        }
     });

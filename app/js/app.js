@@ -13,6 +13,10 @@ var socialNetworkApp = angular
             .when('/test', {
                 template: '<div>Test</div>'
             })
+            //.when('/logout', {
+            //    template: '<button ng-click="logout()">Out</button>',
+            //    controller: 'LogoutController'
+            //})
             .otherwise({
                 redirectTo: '/'
             });

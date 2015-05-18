@@ -1,6 +1,6 @@
 'use strict';
 
 socialNetworkApp.controller('HomeController',
-    function HomeController($scope, authService, searchService) {
+    function HomeController($scope) {
 
     });

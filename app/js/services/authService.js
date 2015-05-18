@@ -6,40 +6,44 @@ socialNetworkApp.factory('authService',
         var serviceUrl = baseServiceUrl + '/users';
 
         return {
-            login: function (userData, success, error) {
-                $http.post(serviceUrl + '/login', userData)
-                    .success(success)
-                    .error(error)
-            },
-
-            loginWithQ: function (userData) {
-                var defer = $q.defer();
+            login: function (userData) {
+                var deferred = $q.defer();
                 $http.post(serviceUrl + '/login', userData)
                     .success(function (data) {
-                        defer.resolve(data);
+                        deferred.resolve(data);
                     })
                     .error(function (error) {
-                        defer.reject(error)
+                        deferred.reject(error)
                     });
 
-                return defer.promise;
+                return deferred.promise;
             },
 
-            register: function (userData, success, error) {
+            register: function (userData) {
+                var deferred = $q.defer();
                 $http.post(serviceUrl + '/register', userData)
-                    .success(success)
-                    .error(error)
+                    .success(function (data) {
+                        console.log('Q ser');
+                        deferred.resolve(data)
+                    })
+                    .error(function (error) {
+                        deferred.reject(error)
+                    });
+
+                return deferred.promise;
             },
 
-            logout: function (success, error) {
-                var request = {
-                    method: 'POST',
-                    url: serviceUrl + '/logout',
-                    headers: this.getAuthHeaders()
-                };
-                $http(request)
-                    .success(success)
-                    .error(error)
+            logout: function () {
+                var deferred = $q.defer();
+                $http.post(serviceUrl + '/logout')
+                    .success(function (data) {
+                        deferred.resolve(data);
+                    })
+                    .error(function (error) {
+                        deferred.reject(error)
+                    });
+
+                return deferred.promise;
             },
 
             isLoggedIn: function () {
