@@ -1,15 +1,15 @@
 'use strict';
 
 socialNetworkApp.controller('LoginController',
-    function LoginController($scope, $location, authService, $http) {
+    function LoginController($scope, $location, authService, Notification) {
 
         $scope.login = function (userData) {
             authService.login(userData)
                 .then(function (data) {
                     authService.setSessionStorage(data);
-                    console.log('Logged in.');
+                    Notification.success('Successfully logged in!');
                 }, function (error) {
-                    console.log(error.error_description);
+                    Notification.error(error.error_description);
                 })
         }
     });

@@ -1,7 +1,7 @@
 'use strict';
 
 var socialNetworkApp = angular
-    .module('socialNetworkApp', ['ngRoute', 'angular-loading-bar'])
+    .module('socialNetworkApp', ['ngRoute', 'angular-loading-bar', 'ui-notification'])
     .constant('baseServiceUrl', 'http://softuni-social-network.azurewebsites.net/api')
     .config(function ($routeProvider, cfpLoadingBarProvider) {
         cfpLoadingBarProvider.includeSpinner = false;
@@ -17,6 +17,10 @@ var socialNetworkApp = angular
             //    template: '<button ng-click="logout()">Out</button>',
             //    controller: 'LogoutController'
             //})
+            .when('/profile/password', {
+                templateUrl: 'templates/changePasswordForm.html',
+                controller: 'ChangePasswordController'
+            })
             .otherwise({
                 redirectTo: '/'
             });

@@ -2,6 +2,7 @@
 
 <span ng-if="authService.isLoggedIn()">
     <a href="#/">Home</a>
+    <a href="#/profile/password">Change Password</a>
     <span><b>Welcome, {{authService.getCurrentUser().userName}}</b></span>
     <a href="#/" ng-click="logout()" ng-controller="LogoutController">Logout</a>
 
