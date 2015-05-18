@@ -13,5 +13,15 @@ socialNetworkApp.controller('LoginController',
                     console.log(error.error_description);
                 }
             );
+        };
+
+        $scope.loginWithQ = function (userData) {
+            authService.loginWithQ(userData)
+                .then(function (data) {
+                    sessionStorage.currentUser = JSON.stringify(data);
+                    console.log('Logged in with Q!');
+                }, function (error) {
+                    console.log(error.error_description);
+                })
         }
     });

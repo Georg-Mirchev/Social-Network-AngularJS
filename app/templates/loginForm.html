@@ -9,3 +9,14 @@
 
     <button type="submit">Login</button>
 </form>
+
+<h2>login with Q</h2>
+<form id="loginFormQ" name="loginForm" ng-submit="loginWithQ(userDataQ)">
+    <label for="username">Username:</label>
+    <input type="text" ng-model="userDataQ.username" required="required"/>
+
+    <label for="password">Password:</label>
+    <input type="password" ng-model="userDataQ.password" required="required"/>
+
+    <button type="submit">Login</button>
+</form>

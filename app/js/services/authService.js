@@ -1,7 +1,7 @@
 'use strict';
 
 socialNetworkApp.factory('authService',
-    function authService($http, baseServiceUrl) {
+    function authService($http, baseServiceUrl, $q) {
 
         var serviceUrl = baseServiceUrl + '/users';
 
@@ -10,6 +10,19 @@ socialNetworkApp.factory('authService',
                 $http.post(serviceUrl + '/login', userData)
                     .success(success)
                     .error(error)
+            },
+
+            loginWithQ: function (userData) {
+                var defer = $q.defer();
+                $http.post(serviceUrl + '/login', userData)
+                    .success(function (data) {
+                        defer.resolve(data);
+                    })
+                    .error(function (error) {
+                        defer.reject(error)
+                    });
+
+                return defer.promise;
             },
 
             register: function (userData, success, error) {
