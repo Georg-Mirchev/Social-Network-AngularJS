@@ -57,13 +57,10 @@ socialNetworkApp.factory('authService',
                 }
             },
 
-            getAuthHeaders: function () {
-                var headers = {};
-                var currentUser = this.getCurrentUser();
-                if (currentUser) {
-                    headers['Authorization'] = 'Bearer ' + currentUser.access_token;
-                }
-                return headers;
+            setSessionStorage: function (data) {
+                sessionStorage.currentUser = JSON.stringify(data);
+                $http.defaults.headers.common.Authorization =
+                    'Bearer ' + data.access_token;
             }
         }
     });

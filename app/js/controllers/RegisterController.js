@@ -6,9 +6,7 @@ socialNetworkApp.controller('RegisterController',
         $scope.register = function (userData) {
             authService.register(userData)
                 .then(function (data) {
-                    sessionStorage.currentUser = JSON.stringify(data);
-                    $http.defaults.headers.common.Authorization =
-                        'Bearer ' + authService.getCurrentUser().access_token;
+                    authService.setSessionStorage(data);
                     console.log('Registered.');
                 }, function (error) {
                     var errorMsg = error.modelState[Object.keys(error.modelState)[0]][0];
