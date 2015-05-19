@@ -23,7 +23,6 @@ socialNetworkApp.factory('authService',
                 var deferred = $q.defer();
                 $http.post(serviceUrl + '/register', userData)
                     .success(function (data) {
-                        console.log('Q ser');
                         deferred.resolve(data)
                     })
                     .error(function (error) {

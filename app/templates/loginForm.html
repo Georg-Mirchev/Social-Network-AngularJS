@@ -1,11 +1,11 @@
-<form id="loginForm" name="loginForm" ng-submit="login(userData)">
+<form id="loginForm" name="loginForm" ng-submit="login(userData)" novalidate>
     <h2>Login</h2>
 
     <label for="username">Username:</label>
-    <input type="text" id="username" ng-model="userData.username" required="required"/>
+    <input type="text" id="username" ng-model="userData.username" required/>
 
     <label for="password">Password:</label>
-    <input type="password" id="password" ng-model="userData.password" required="required"/>
+    <input type="password" id="password" ng-model="userData.password" required/>
 
     <button type="submit">Login</button>
 </form>

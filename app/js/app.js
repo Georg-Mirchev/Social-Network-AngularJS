@@ -9,9 +9,28 @@ var socialNetworkApp = angular
             .when('/', {
                 templateUrl: 'templates/home.html',
                 controller: 'HomeController'
+                ,
+                resolve: {
+                    //newsFeed: function (authService, postsService) {
+                    //    if (authService.isLoggedIn()) {
+                    //        postsService.getNewsFeed()
+                    //            .then(function (data) {
+                    //                console.log(data);
+                    //                return data;
+                    //            });
+                    //    }
+                    //}
+                }
             })
             .when('/test', {
-                template: '<div>Test</div>'
+                template: '<div>Test</div>',
+                resolve: {
+                    isLoggedIn: function ($location, authService) {
+                        if (!authService.isLoggedIn()) {
+                            $location.path('/');
+                        }
+                    }
+                }
             })
             //.when('/logout', {
             //    template: '<button ng-click="logout()">Out</button>',
@@ -24,11 +43,11 @@ var socialNetworkApp = angular
             .otherwise({
                 redirectTo: '/'
             });
-    })
-    .run(function ($rootScope, $location, authService) {
-        $rootScope.$on('$locationChangeStart', function () {
-            if ($location.path().indexOf('/') != -1 && !authService.isLoggedIn()) {
-                $location.path('/');
-            }
-        });
     });
+//.run(function ($rootScope, $location, authService) {
+//    $rootScope.$on('$locationChangeStart', function () {
+//        if ($location.path().indexOf('/') != -1 && !authService.isLoggedIn()) {
+//            $location.path('/');
+//        }
+//    });
+//});
