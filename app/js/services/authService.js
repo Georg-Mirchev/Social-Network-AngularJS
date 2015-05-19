@@ -1,7 +1,7 @@
 'use strict';
 
 socialNetworkApp.factory('authService',
-    function authService($http, baseServiceUrl, $q) {
+    function authService($http, $q, baseServiceUrl) {
 
         var serviceUrl = baseServiceUrl + '/users';
 
@@ -60,6 +60,11 @@ socialNetworkApp.factory('authService',
                 sessionStorage.currentUser = JSON.stringify(data);
                 $http.defaults.headers.common.Authorization =
                     'Bearer ' + data.access_token;
+            },
+
+            clearSessionStorage: function () {
+                delete sessionStorage.currentUser;
+                delete $http.defaults.headers.common.Authorization;
             }
         }
     });

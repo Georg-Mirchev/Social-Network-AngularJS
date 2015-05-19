@@ -5,7 +5,7 @@ socialNetworkApp.controller('SearchController',
 
         $scope.searchUser = function (searchUser) {
             if (searchUser != undefined) {
-                searchService.searchUserWithQ(searchUser)
+                searchService.searchUser(searchUser)
                     .then(function (data) {
                         $scope.searchObj = data;
                     }, function (error) {
@@ -22,12 +22,12 @@ socialNetworkApp.controller('SearchController',
             }, 750);
         };
 
-        $scope.checkAndFormatImgUrl = function (searchResult) {
-            if (searchResult.profileImageData &&
-                searchResult.profileImageData != 'null' &&
-                searchResult.profileImageData.length > 50) {
-                return 'data:image/jpeg;base64,' + searchResult.profileImageData.split('data:image/jpeg;base64,')
-                    [searchResult.profileImageData.split('data:image/jpeg;base64,').length - 1];
-            }
-        };
+        //$scope.checkAndFormatImgUrl = function (searchResult) {
+        //    if (searchResult.profileImageData &&
+        //        searchResult.profileImageData != 'null' &&
+        //        searchResult.profileImageData.length > 50) {
+        //        return 'data:image/jpeg;base64,' + searchResult.profileImageData.split('data:image/jpeg;base64,')
+        //            [searchResult.profileImageData.split('data:image/jpeg;base64,').length - 1];
+        //    }
+        //};
     });

@@ -5,7 +5,7 @@ socialNetworkApp.factory('searchService',
         var serviceUrl = baseServiceUrl + '/users/search?searchTerm=';
 
         return {
-            searchUserWithQ: function (searchData) {
+            searchUser: function (searchData) {
                 var deferred = $q.defer();
                 $http.get(serviceUrl + searchData)
                     .success(function (data) {

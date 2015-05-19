@@ -1,14 +1,16 @@
-<div ng-if="authService.isLoggedIn()" ng-controller="NewsFeedController">
+<div ng-if="authService.isLoggedIn()">
     <h3>Home (News Feed Page)</h3>
+
     <div id="post" ng-repeat="post in newsFeed">
         <div id="wallOwner">{{post.wallOwner.name}}</div>
         <div>{{post.id}}</div>
     </div>
 </div>
 
-<div ng-if="!authService.isLoggedIn()">
+<div ng-if="!authService.isLoggedIn()" id="forms">
     <div ng-include="'templates/loginForm.html'" ng-controller="LoginController"></div>
 
     <div ng-include="'templates/registerForm.html'" ng-controller="RegisterController"></div>
 </div>
+<div class="clear"></div>
 

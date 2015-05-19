@@ -1,14 +1,15 @@
 'use strict';
 
 socialNetworkApp.controller('LogoutController',
-    function LogoutController($scope, $http, $location, authService, Notification) {
+    function LogoutController($scope, $http, $location, authService, Notification, $route) {
 
         $scope.logout = function () {
             authService.logout()
                 .then(function (data) {
-                    delete $http.defaults.headers.common.Authorization;
-                    delete sessionStorage.currentUser;
+                    authService.clearSessionStorage();
                     Notification.success(data.message);
+                    $location.path('/');
+                    $route.reload();
                 }, function (error) {
                     Notification.error(error.message);
                 })
