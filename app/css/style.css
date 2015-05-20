@@ -63,6 +63,20 @@ header h3 {
     max-height: 50px;
 }
 
+.newsFeedPost {
+    height: 200px;
+    border: 1px solid #ccc;
+    margin: 5px;
+    padding: 5px;
+}
+
+.newsFeedPost img {
+    max-width: 50px;
+    max-height: 50px;
+}
+
 .clear {
     clear: both;
 }
+
+

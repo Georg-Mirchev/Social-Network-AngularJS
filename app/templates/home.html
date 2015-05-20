@@ -1,9 +1,18 @@
 <div ng-if="authService.isLoggedIn()">
     <h3>Home (News Feed Page)</h3>
 
-    <div id="post" ng-repeat="post in newsFeed">
-        <div id="wallOwner">{{post.wallOwner.name}}</div>
-        <div>{{post.id}}</div>
+    <div infinite-scroll='newsFeedPosts.nextPosts()' infinite-scroll-disabled='newsFeedPosts.isScrollPaused' infinite-scroll-distance='0.050'>
+        <div class="newsFeedPost" ng-repeat='post in newsFeedPosts.posts'>
+            <img ng-src="{{post.author.profileImageData || 'resources/defaultProfilePicture.jpg'}}"/>
+            <span>{{post.author.name}}</span>
+            <img ng-src="{{post.wallOwner.profileImageData || 'resources/defaultProfilePicture.jpg'}}"/>
+            <span>{{post.wallOwner.name}}</span>
+            <div>{{post.postContent}}</div>
+            <div>{{post.date}}</div>
+            <div>{{post.likesCount}}</div>
+            <div class="clear"></div>
+        </div>
+        <div ng-show='newsFeedPosts.isScrollPaused'>{{newsFeedPosts.message}}</div>
     </div>
 </div>
 
@@ -13,4 +22,5 @@
     <div ng-include="'templates/registerForm.html'" ng-controller="RegisterController"></div>
 </div>
 <div class="clear"></div>
+
 
