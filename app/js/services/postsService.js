@@ -1,7 +1,7 @@
 'use strict';
 
 socialNetworkApp.factory('postsService',
-    function postsService($http, $q, baseServiceUrl) {
+    function postsService($http, baseServiceUrl) {
         var serviceUrl = baseServiceUrl + '/me';
 
         var NewsFeedPosts = function () {
@@ -12,7 +12,7 @@ socialNetworkApp.factory('postsService',
         };
 
         NewsFeedPosts.prototype.nextPosts = function () {
-            var url = serviceUrl + '/feed?StartPostId=' + this.lastPostId + '&PageSize=2';
+            var url = serviceUrl + '/feed?StartPostId=' + this.lastPostId + '&PageSize=3';
 
             if (this.isScrollPaused) return;
             this.isScrollPaused = true;

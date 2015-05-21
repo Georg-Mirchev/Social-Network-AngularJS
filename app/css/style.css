@@ -64,7 +64,7 @@ header h3 {
 }
 
 .newsFeedPost {
-    height: 200px;
+    min-height: 200px;
     border: 1px solid #ccc;
     margin: 5px;
     padding: 5px;
