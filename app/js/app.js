@@ -2,7 +2,10 @@
 
 var socialNetworkApp = angular
     .module('socialNetworkApp', ['ngRoute', 'angular-loading-bar', 'ui-notification', 'infinite-scroll', 'angularMoment'])
-    .constant('baseServiceUrl', 'http://softuni-social-network.azurewebsites.net/api')
+    .constant({
+        'baseServiceUrl': 'http://softuni-social-network.azurewebsites.net/api',
+        'pageSize': '3'
+    })
     .config(function ($routeProvider, cfpLoadingBarProvider) {
         cfpLoadingBarProvider.includeSpinner = false;
         $routeProvider
