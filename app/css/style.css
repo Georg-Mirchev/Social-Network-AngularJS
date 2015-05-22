@@ -76,6 +76,16 @@ header h3 {
     max-height: 50px;
 }
 
+#profileImagePreview {
+    max-width: 150px;
+    max-height: 150px;
+}
+
+#coverImagePreview {
+    max-width: 500px;
+    max-height: 150px;
+}
+
 .clear {
     clear: both;
 }

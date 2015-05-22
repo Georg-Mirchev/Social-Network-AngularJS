@@ -11,10 +11,11 @@
     <label><input ng-model="userData.gender" type="radio" name="gender" ng-value="2">Female</label>
     <label><input ng-model="userData.gender" type="radio" name="gender" ng-value="0">Other</label>
 
-    <img id="profileImagePreview" ng-src="{{userData.profileImageData}}"/><br/>
-    Cover: <img src="{{userData.coverImageData}}"/>
-
+    <img id="profileImagePreview" ng-src="{{userData.profileImageData}}"/>
     <input type="file" id="image" onchange="angular.element(this).scope().uploadImage(this)"/>
+
+    Cover: <img id="coverImagePreview" ng-src="{{userData.coverImageData}}"/>
+    <input type="file" id="coverImage" onchange="angular.element(this).scope().uploadImage(this, true)"/>
 
     <button type="submit">Edit Profile</button>
     <a href="#/" class="button">Cancel</a>
