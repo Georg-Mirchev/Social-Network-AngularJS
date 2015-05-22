@@ -13,18 +13,28 @@ var socialNetworkApp = angular
                 templateUrl: 'templates/home.html',
                 controller: 'HomeController'
             })
+            .when('/profile', {
+                templateUrl: 'templates/editProfileForm.html',
+                controller: 'EditProfileController',
+                resolve: {
+                    isLoggedIn: isLoggedIn
+                }
+            })
             .when('/profile/password', {
                 templateUrl: 'templates/changePasswordForm.html',
                 controller: 'ChangePasswordController',
                 resolve: {
-                    isLoggedIn: function ($location, authService) {
-                        if (!authService.isLoggedIn()) {
-                            $location.path('/');
-                        }
-                    }
+                    isLoggedIn: isLoggedIn
                 }
             })
             .otherwise({
                 redirectTo: '/'
             });
-    })
+    });
+
+var isLoggedIn = function ($location, authService, Notification) {
+    if (!authService.isLoggedIn()) {
+        $location.path('/');
+        Notification.info("You don't have access here.");
+    }
+};

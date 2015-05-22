@@ -16,5 +16,14 @@
     <label for="email">Email:</label>
     <input type="email" id="email" ng-model="userData.email" required="required"/>
 
-    <button type="submit">Register</button>
+    <label for="male">Male</label>
+    <input ng-model="userData.gender" id="male" type="radio" name="gender" value="Male" required>
+
+    <label for="female">Female</label>
+    <input ng-model="userData.gender" id="female" type="radio" name="gender" value="Female" required>
+
+    <label for="other">Other</label>
+    <input ng-model="userData.gender" id="other" type="radio" name="gender" value="Other" required>
+
+    <button type="submit" ng-disabled="registerForm.$invalid">Register</button>
 </form>

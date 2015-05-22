@@ -1,0 +1,21 @@
+<form name="editProfileForm" id="editProfileForm" ng-submit="editProfile(userData)">
+    <h3>Edit Profile</h3>
+
+    <label for="name">Name:</label>
+    <input type="text" id="name" ng-model="userData.name" required="required"/>
+
+    <label for="email">Email:</label>
+    <input type="email" id="email" ng-model="userData.email" required="required"/>
+
+    <label><input ng-model="userData.gender"  type="radio" name="gender" ng-value="1" required>Male</label>
+    <label><input ng-model="userData.gender" type="radio" name="gender" ng-value="2">Female</label>
+    <label><input ng-model="userData.gender" type="radio" name="gender" ng-value="0">Other</label>
+
+    <img id="profileImagePreview" ng-src="{{userData.profileImageData}}"/><br/>
+    Cover: <img src="{{userData.coverImageData}}"/>
+
+    <input type="file" id="image" onchange="angular.element(this).scope().uploadImage(this)"/>
+
+    <button type="submit">Edit Profile</button>
+    <a href="#/" class="button">Cancel</a>
+</form>

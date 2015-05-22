@@ -1,0 +1,19 @@
+<div infinite-scroll='newsFeedPosts()' infinite-scroll-disabled='isScrollPaused'
+     infinite-scroll-distance='0.01'>
+    <div class="newsFeedPost" ng-repeat='post in posts'>
+        <img ng-src="{{post.author.profileImageData || 'resources/defaultProfilePicture.jpg'}}"/>
+        <span>{{post.author.name}}</span>
+        <img ng-src="{{post.wallOwner.profileImageData || 'resources/defaultProfilePicture.jpg'}}"/>
+        <span>{{post.wallOwner.name}}</span>
+
+        <div>{{post.postContent}}</div>
+        <div>{{dateFromNow(post.date)}}</div>
+        <div>Likes: {{post.likesCount}}</div>
+        <div ng-repeat="comment in post.comments | orderBy: 'id'">
+            <div>{{comment.author.name}}: {{comment.commentContent}}</div>
+            <div>{{dateFromNow(comment.date)}}</div>
+        </div>
+        <div class="clear"></div>
+    </div>
+    <div>{{postsMessage}}</div>
+</div>

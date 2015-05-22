@@ -1,25 +1,8 @@
 <div ng-if="authService.isLoggedIn()">
     <h3>Home (News Feed Page)</h3>
 
-    <div infinite-scroll='newsFeedPosts()' infinite-scroll-disabled='isScrollPaused'
-         infinite-scroll-distance='0.01'>
-        <div class="newsFeedPost" ng-repeat='post in posts'>
-            <img ng-src="{{post.author.profileImageData || 'resources/defaultProfilePicture.jpg'}}"/>
-            <span>{{post.author.name}}</span>
-            <img ng-src="{{post.wallOwner.profileImageData || 'resources/defaultProfilePicture.jpg'}}"/>
-            <span>{{post.wallOwner.name}}</span>
+    <div ng-include="'templates/post.html'"></div>
 
-            <div>{{post.postContent}}</div>
-            <div am-time-ago="post.date"></div>
-            <div>Likes: {{post.likesCount}}</div>
-            <div ng-repeat="comment in post.comments">
-                <div>{{comment.author.name}}: {{comment.commentContent}}</div>
-                <div am-time-ago="comment.date"></div>
-            </div>
-            <div class="clear"></div>
-        </div>
-        <div>{{postsMessage}}</div>
-    </div>
 </div>
 
 <div ng-if="!authService.isLoggedIn()" id="forms">

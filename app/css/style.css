@@ -36,11 +36,12 @@ header h3 {
     float: right;
     padding: 10px;
     margin: 20px 25% 20px 0;
+    width: 200px;
 }
 
-#registerForm input {
-    display: block;
-}
+/*#registerForm input {*/
+    /*display: block;*/
+/*}*/
 
 #changePasswordForm {
     border: 1px solid #ccc;
