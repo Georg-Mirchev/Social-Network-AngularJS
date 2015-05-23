@@ -1,12 +1,13 @@
 'use strict';
 
-socialNetworkApp.factory('postsService',
-    function postsService($http, $q, baseServiceUrl) {
+socialNetworkApp.factory('commentsService',
+    function commentsService($http, $q, baseServiceUrl) {
+
+        var serviceUrl = baseServiceUrl + '/posts/';
 
         return {
-            getPosts: function (pageSize, lastPostId) {
-                var url = baseServiceUrl + '/me/feed?StartPostId=' + lastPostId
-                    + '&PageSize=' + pageSize;
+            getPostComments: function (postId) {
+                var url = serviceUrl + postId + '/comments';
 
                 var deferred = $q.defer();
                 $http.get(url)
@@ -20,8 +21,8 @@ socialNetworkApp.factory('postsService',
                 return deferred.promise;
             },
 
-            likePost: function (postId) {
-                var url = baseServiceUrl + '/Posts/' + postId + '/likes';
+            likeComment: function (postId, commendId) {
+                var url = serviceUrl + postId + '/comments/' + commendId + '/likes';
 
                 var deferred = $q.defer();
                 $http.post(url)
@@ -35,8 +36,8 @@ socialNetworkApp.factory('postsService',
                 return deferred.promise;
             },
 
-            unlikePost: function (postId) {
-                var url = baseServiceUrl + '/Posts/' + postId + '/likes';
+            unlikeComment: function (postId, commendId) {
+                var url = serviceUrl + postId + '/comments/' + commendId + '/likes';
 
                 var deferred = $q.defer();
                 $http.delete(url)

@@ -21,7 +21,6 @@ socialNetworkApp.controller('EditProfileController',
 
             var file = fileInputField.files[0];
             if (file && file.type.match(/image\/.*/) && file.size < sizeLimit) {
-                console.log('im in');
                 var reader = new FileReader();
                 reader.onload = function () {
                     if (isCoverImage) {

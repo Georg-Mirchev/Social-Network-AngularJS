@@ -7,11 +7,12 @@
     <label for="email">Email:</label>
     <input type="email" id="email" ng-model="userData.email" required="required"/>
 
+    Gender:
     <label><input ng-model="userData.gender"  type="radio" name="gender" ng-value="1" required>Male</label>
     <label><input ng-model="userData.gender" type="radio" name="gender" ng-value="2">Female</label>
     <label><input ng-model="userData.gender" type="radio" name="gender" ng-value="0">Other</label>
 
-    <img id="profileImagePreview" ng-src="{{userData.profileImageData}}"/>
+    Profile: <img id="profileImagePreview" ng-src="{{userData.profileImageData}}"/>
     <input type="file" id="image" onchange="angular.element(this).scope().uploadImage(this)"/>
 
     Cover: <img id="coverImagePreview" ng-src="{{userData.coverImageData}}"/>

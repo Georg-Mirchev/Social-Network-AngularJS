@@ -39,10 +39,6 @@ header h3 {
     width: 200px;
 }
 
-/*#registerForm input {*/
-    /*display: block;*/
-/*}*/
-
 #changePasswordForm {
     border: 1px solid #ccc;
     padding: 10px;
@@ -76,14 +72,31 @@ header h3 {
     max-height: 50px;
 }
 
+#editProfileForm {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin: 0 auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    width: 260px;
+}
+
 #profileImagePreview {
     max-width: 150px;
     max-height: 150px;
 }
 
 #coverImagePreview {
-    max-width: 500px;
+    max-width: 260px;
     max-height: 150px;
+}
+
+#comments {
+    border: 1px solid #ccc;
+}
+
+.comment {
+    border: 1px solid #ccc;
 }
 
 .clear {
