@@ -13,27 +13,8 @@
 
         <div>Likes: {{post.likesCount}}</div>
 
-        <div ng-if="post.totalCommentsCount > 0" id="comments" ng-controller="CommentsController">
-            <a href="" ng-if="post.totalCommentsCount > 3" ng-hide="isHidden"
-               ng-click="showAllComments(post); isHidden = true">
-                Show All {{post.totalCommentsCount}} Comments</a>
+        <div ng-include="'templates/comment.html'"></div>
 
-            <div class="comment" ng-repeat="comment in post.comments | orderBy: 'id'">
-                <div>{{comment.author.name}}: {{comment.commentContent}}</div>
-                <div>{{dateFromNow(comment.date)}}</div>
-                <a ng-if="!comment.liked" href="" ng-click="likeComment(post, comment)">Like</a>
-                <a ng-if="comment.liked" href="" ng-click="unlikeComment(post, comment)">Unlike</a>
-
-                <div>Likes: {{comment.likesCount}}</div>
-            </div>
-        </div>
-
-        <div id="addCommentForm" ng-controller="CommentsController">
-            <textarea ng-model="commentData.commentContent"></textarea>
-            <button ng-click="addComment(post, commentData)">Comment</button>
-        </div>
-
-        <div class="clear"></div>
     </div>
     <div>{{postsMessage}}</div>
 </div>
