@@ -6,7 +6,7 @@ socialNetworkApp.controller('LogoutController',
         $scope.logout = function () {
             authService.logout()
                 .then(function (data) {
-                    authService.clearSessionStorage();
+                    authService.clearCredentials();
                     Notification.success(data.message);
                     $location.path('/');
                     $route.reload();

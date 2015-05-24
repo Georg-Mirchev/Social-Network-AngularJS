@@ -56,13 +56,13 @@ socialNetworkApp.factory('authService',
                 }
             },
 
-            setSessionStorage: function (data) {
+            setCredentials: function (data) {
                 sessionStorage.currentUser = JSON.stringify(data);
                 $http.defaults.headers.common.Authorization =
                     'Bearer ' + data.access_token;
             },
 
-            clearSessionStorage: function () {
+            clearCredentials: function () {
                 delete sessionStorage.currentUser;
                 delete $http.defaults.headers.common.Authorization;
             }

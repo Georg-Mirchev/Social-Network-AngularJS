@@ -21,13 +21,4 @@ socialNetworkApp.controller('SearchController',
                 $scope.showSearchResults = !$scope.showSearchResults;
             }, 750);
         };
-
-        //$scope.checkAndFormatImgUrl = function (searchResult) {
-        //    if (searchResult.profileImageData &&
-        //        searchResult.profileImageData != 'null' &&
-        //        searchResult.profileImageData.length > 50) {
-        //        return 'data:image/jpeg;base64,' + searchResult.profileImageData.split('data:image/jpeg;base64,')
-        //            [searchResult.profileImageData.split('data:image/jpeg;base64,').length - 1];
-        //    }
-        //};
     });

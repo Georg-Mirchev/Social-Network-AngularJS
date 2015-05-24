@@ -6,7 +6,7 @@ socialNetworkApp.controller('LoginController',
         $scope.login = function (userData) {
             authService.login(userData)
                 .then(function (data) {
-                    authService.setSessionStorage(data);
+                    authService.setCredentials(data);
                     Notification.success('Successfully logged in!');
                     $route.reload();
                 }, function (error) {

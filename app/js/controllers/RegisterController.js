@@ -6,7 +6,7 @@ socialNetworkApp.controller('RegisterController',
         $scope.register = function (userData) {
             authService.register(userData)
                 .then(function (data) {
-                    authService.setSessionStorage(data);
+                    authService.setCredentials(data);
                     Notification.success('Successfully registered!');
                     $route.reload();
                 }, function (error) {

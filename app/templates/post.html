@@ -12,7 +12,7 @@
         <a ng-if="post.liked" href="" ng-click="unlikePost(post)">Unlike</a>
 
         <div>Likes: {{post.likesCount}}</div>
-        <div id="comments" ng-controller="CommentsController">
+        <div ng-if="post.totalCommentsCount > 0" id="comments" ng-controller="CommentsController">
             <a href="" ng-if="post.totalCommentsCount > 3" ng-hide="post.comments.length > 3" ng-click="showAllComments(post)">
                 Show All {{post.totalCommentsCount}} Comments</a>
             <div class="comment" ng-repeat="comment in post.comments | orderBy: 'id'">
