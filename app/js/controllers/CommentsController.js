@@ -12,6 +12,18 @@ socialNetworkApp.controller('CommentsController',
                 })
         };
 
+        $scope.addComment = function (post, commentData) {
+            commentsService.addComment(post.id, commentData)
+                .then(function (data) {
+                    $scope.commentData.commentContent = "";
+                    post.comments.push(data);
+                    post.totalCommentsCount++;
+                    Notification.success('Comment added successfully!')
+                }, function (error) {
+                    Notification.error(error);
+                })
+        };
+
         $scope.likeComment = function (post, comment) {
             commentsService.likeComment(post.id, comment.id)
                 .then(function () {

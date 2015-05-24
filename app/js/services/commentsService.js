@@ -21,6 +21,21 @@ socialNetworkApp.factory('commentsService',
                 return deferred.promise;
             },
 
+            addComment: function (postId, commentData) {
+                var url = serviceUrl + postId + '/comments';
+
+                var deferred = $q.defer();
+                $http.post(url, commentData)
+                    .success(function (data) {
+                        deferred.resolve(data);
+                    })
+                    .error(function (error) {
+                        deferred.reject(error)
+                    });
+
+                return deferred.promise;
+            },
+
             likeComment: function (postId, commendId) {
                 var url = serviceUrl + postId + '/comments/' + commendId + '/likes';
 
