@@ -20,8 +20,7 @@ socialNetworkApp.controller('CommentsController',
                     post.totalCommentsCount++;
                     Notification.success('Comment added successfully!')
                 }, function (error) {
-                    var errorMsg = error.modelState[Object.keys(error.modelState)[0]][0];
-                    Notification.error(errorMsg);
+                    Notification.error('Failed to add comment. Please try again.')
                 })
         };
 
