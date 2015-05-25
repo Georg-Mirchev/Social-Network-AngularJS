@@ -1,0 +1,12 @@
+<div>
+    <a href="#/users/{{authService.getCurrentUser().userName}}/friends">
+        Friends - {{friendsPreviewList.totalCount}} total.</a>
+    <ul>
+        <li class="friends" ng-repeat="friend in friendsPreviewList.friends">
+            <img class="profileImageSearch"
+                 ng-src="{{friend.profileImageData || 'resources/defaultProfilePicture.jpg'}}"/>
+            {{friend.name}}
+        </li>
+    </ul>
+</div>
+<div class="clear"></div>

@@ -99,6 +99,25 @@ header h3 {
     border: 1px solid #ccc;
 }
 
+.friends {
+    display: block;
+    float: left;
+    margin: 3px;
+    padding: 3px;
+    border: 1px solid #ccc;
+}
+
+#friendsPreview {
+    border: 1px solid #ccc;
+    width: 45%;
+    float: right
+}
+
+#posts {
+    width: 50%;
+    float: left;
+}
+
 .clear {
     clear: both;
 }

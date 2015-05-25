@@ -1,0 +1,12 @@
+<div>
+    <h4>Friends {{friendsList.length}} total.</h4>
+    <input type="text" placeholder="search friend by name" ng-model="filterFriends.name">
+    <ul>
+        <li class="friends" ng-repeat="friend in friendsList | filter: filterFriends">
+            <img class="profileImageSearch"
+                 ng-src="{{friend.profileImageData || 'resources/defaultProfilePicture.jpg'}}"/>
+            {{friend.name}}
+        </li>
+    </ul>
+</div>
+<div class="clear"></div>

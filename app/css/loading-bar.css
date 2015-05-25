@@ -29,7 +29,9 @@
     -o-transition: width 350ms;
     transition: width 350ms;
 
-    background: rgba(239, 110, 126, 0.25);
+    /*background: rgba(239, 110, 126, 0.25);*/
+    background: rgba(204, 204, 204, 0.15);
+    border-right: 3px solid rgba(204, 204, 204, 0.36);
     /*background: rgba(114, 208, 244, 0.25);*/
     /*background: rgba(204, 204, 204, 0.36);*/
     position: fixed;

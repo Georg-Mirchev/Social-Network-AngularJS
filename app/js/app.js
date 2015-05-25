@@ -11,7 +11,21 @@ var socialNetworkApp = angular
         $routeProvider
             .when('/', {
                 templateUrl: 'templates/home.html',
-                controller: 'HomeController'
+                controller: 'HomeController',
+                resolve: {
+                    friendsDataPreview: function (authService, friendsService) {
+                        if (authService.isLoggedIn()) {
+                            return friendsService.getOwnFriendsPreview();
+                        }
+                    }
+                }
+            })
+            .when('/users/:username/friends', {
+                templateUrl: 'templates/friends.html',
+                controller: 'FriendsController',
+                resolve: {
+                    isLoggedIn: isLoggedIn
+                }
             })
             .when('/profile', {
                 templateUrl: 'templates/editProfileForm.html',

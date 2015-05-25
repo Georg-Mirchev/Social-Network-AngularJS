@@ -1,6 +1,6 @@
 'use strict';
 
 socialNetworkApp.controller('HomeController',
-    function HomeController($scope, PAGE_SIZE, postsService) {
-
+    function HomeController($scope, PAGE_SIZE, postsService, friendsDataPreview) {
+        $scope.friendsPreviewList = friendsDataPreview;
     });

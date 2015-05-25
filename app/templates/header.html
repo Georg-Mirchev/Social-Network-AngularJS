@@ -2,7 +2,8 @@
     <h3>SoftUni Social Network</h3>
 
 <span ng-if="authService.isLoggedIn()">
-    <a href="#/" ng-click="routeReload()">Home</a>
+    <a href="" ng-click="routeReload()">Home</a>
+    <a href="#/users/{{authService.getCurrentUser().userName}}/friends">Friends</a>
     <a href="#/profile/password">Change Password</a>
     <a href="#/profile">Edit Profile</a>
 

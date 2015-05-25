@@ -1,8 +1,9 @@
 <div ng-if="authService.isLoggedIn()">
     <h3>Home (News Feed Page)</h3>
 
-    <div ng-include="'templates/post.html'" ng-controller="PostsController"></div>
+    <div id="posts" ng-include="'templates/post.html'" ng-controller="PostsController"></div>
 
+    <div id="friendsPreview" ng-include="'templates/friendsPreview.html'"></div>
 </div>
 
 <div ng-if="!authService.isLoggedIn()" id="forms">
