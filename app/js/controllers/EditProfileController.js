@@ -1,19 +1,19 @@
 'use strict';
 
 socialNetworkApp.controller('EditProfileController',
-    function EditProfileController($scope, $location, userService, Notification) {
+    function EditProfileController($scope, $location, userService, Notification, userData) {
 
-        $scope.getDataAboutMe = function () {
-            userService.getDataAboutMe()
-                .then(function (data) {
-                    $scope.userData = data;
-                }, function (error) {
-                    var errorMsg = error.modelState[Object.keys(error.modelState)[0]][0];
-                    Notification.error(errorMsg);
-                });
-        };
+        $scope.userData = userData;
 
-        $scope.getDataAboutMe();
+        //$scope.getDataAboutMe = function () {
+        //    userService.getDataAboutMe()
+        //        .then(function (data) {
+        //            $scope.userData = data;
+        //        }, function (error) {
+        //            var errorMsg = error.modelState[Object.keys(error.modelState)[0]][0];
+        //            Notification.error(errorMsg);
+        //        });
+        //};
 
         $scope.uploadImage = function (fileInputField, isCoverImage) {
             var sizeLimit;

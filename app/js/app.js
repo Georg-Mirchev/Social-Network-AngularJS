@@ -17,7 +17,10 @@ var socialNetworkApp = angular
                 templateUrl: 'templates/editProfileForm.html',
                 controller: 'EditProfileController',
                 resolve: {
-                    isLoggedIn: isLoggedIn
+                    isLoggedIn: isLoggedIn,
+                    userData: function (userService) {
+                        return userService.getDataAboutMe();
+                    }
                 }
             })
             .when('/profile/password', {

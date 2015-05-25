@@ -22,7 +22,7 @@ socialNetworkApp.controller('PostsController',
                         $scope.postsMessage = 'No more posts.';
                     }
                 }, function (error) {
-                    console.log(error.message);
+                    Notification.error(error.message);
                 })
         };
 
