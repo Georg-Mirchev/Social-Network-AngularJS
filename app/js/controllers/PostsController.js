@@ -1,7 +1,7 @@
 'use strict';
 
 socialNetworkApp.controller('PostsController',
-    function PostsController($scope, pageSize, postsService, Notification) {
+    function PostsController($scope, PAGE_SIZE, postsService, Notification) {
 
         var lastPostId = '';
         $scope.posts = [];
@@ -11,7 +11,7 @@ socialNetworkApp.controller('PostsController',
             if ($scope.isScrollPaused) return;
             $scope.isScrollPaused = true;
 
-            postsService.getPosts(pageSize, lastPostId)
+            postsService.getPosts(PAGE_SIZE, lastPostId)
                 .then(function (data) {
                     $scope.posts = $scope.posts.concat(data);
                     if (data.length > 0) {

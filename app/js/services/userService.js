@@ -1,9 +1,9 @@
 'use strict';
 
 socialNetworkApp.factory('userService',
-    function userService($http, $q, baseServiceUrl) {
+    function userService($http, $q, BASE_URL) {
 
-        var serviceUrl = baseServiceUrl + '/me';
+        var serviceUrl = BASE_URL + '/me';
 
         return {
             getDataAboutMe: function () {

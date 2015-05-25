@@ -1,9 +1,9 @@
 'use strict';
 
 socialNetworkApp.factory('authService',
-    function authService($http, $q, baseServiceUrl) {
+    function authService($http, $q, BASE_URL) {
 
-        var serviceUrl = baseServiceUrl + '/users';
+        var serviceUrl = BASE_URL + '/users';
 
         return {
             login: function (userData) {

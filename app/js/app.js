@@ -3,8 +3,8 @@
 var socialNetworkApp = angular
     .module('socialNetworkApp', ['ngRoute', 'angular-loading-bar', 'ui-notification', 'infinite-scroll', 'angularMoment'])
     .constant({
-        'baseServiceUrl': 'http://softuni-social-network.azurewebsites.net/api',
-        'pageSize': '3'
+        'BASE_URL': 'http://softuni-social-network.azurewebsites.net/api',
+        'PAGE_SIZE': '3'
     })
     .config(function ($routeProvider, cfpLoadingBarProvider) {
         cfpLoadingBarProvider.includeSpinner = false;
@@ -18,8 +18,10 @@ var socialNetworkApp = angular
                 controller: 'EditProfileController',
                 resolve: {
                     isLoggedIn: isLoggedIn,
-                    userData: function (userService) {
-                        return userService.getDataAboutMe();
+                    userData: function (authService, userService) {
+                        if (authService.isLoggedIn()){
+                            return userService.getDataAboutMe();
+                        }
                     }
                 }
             })

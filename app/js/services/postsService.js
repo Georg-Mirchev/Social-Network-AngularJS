@@ -1,11 +1,11 @@
 'use strict';
 
 socialNetworkApp.factory('postsService',
-    function postsService($http, $q, baseServiceUrl) {
+    function postsService($http, $q, BASE_URL) {
 
         return {
             getPosts: function (pageSize, lastPostId) {
-                var url = baseServiceUrl + '/me/feed?StartPostId=' + lastPostId
+                var url = BASE_URL + '/me/feed?StartPostId=' + lastPostId
                     + '&PageSize=' + pageSize;
 
                 var deferred = $q.defer();
@@ -21,7 +21,7 @@ socialNetworkApp.factory('postsService',
             },
 
             likePost: function (postId) {
-                var url = baseServiceUrl + '/Posts/' + postId + '/likes';
+                var url = BASE_URL + '/Posts/' + postId + '/likes';
 
                 var deferred = $q.defer();
                 $http.post(url)
@@ -36,7 +36,7 @@ socialNetworkApp.factory('postsService',
             },
 
             unlikePost: function (postId) {
-                var url = baseServiceUrl + '/Posts/' + postId + '/likes';
+                var url = BASE_URL + '/Posts/' + postId + '/likes';
 
                 var deferred = $q.defer();
                 $http.delete(url)

@@ -1,8 +1,8 @@
 'use strict';
 
 socialNetworkApp.factory('searchService',
-    function searchService($http, $q, baseServiceUrl) {
-        var serviceUrl = baseServiceUrl + '/users/search?searchTerm=';
+    function searchService($http, $q, BASE_URL) {
+        var serviceUrl = BASE_URL + '/users/search?searchTerm=';
 
         return {
             searchUser: function (searchData) {

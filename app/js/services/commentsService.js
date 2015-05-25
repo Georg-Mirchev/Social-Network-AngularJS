@@ -1,9 +1,9 @@
 'use strict';
 
 socialNetworkApp.factory('commentsService',
-    function commentsService($http, $q, baseServiceUrl) {
+    function commentsService($http, $q, BASE_URL) {
 
-        var serviceUrl = baseServiceUrl + '/posts/';
+        var serviceUrl = BASE_URL + '/posts/';
 
         return {
             getPostComments: function (postId) {
