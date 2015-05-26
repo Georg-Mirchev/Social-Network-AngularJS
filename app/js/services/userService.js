@@ -34,6 +34,20 @@ socialNetworkApp.factory('userService',
                 return deferred.promise;
             },
 
+            getUserPreviewData: function (username) {
+                var deferred = $q.defer();
+
+                $http.get(serviceUrl + '/users/' + username + '/preview')
+                    .success(function (data) {
+                        deferred.resolve(data);
+                    })
+                    .error(function (error) {
+                        deferred.reject(error);
+                    });
+
+                return deferred.promise;
+            },
+
             editProfile: function (userData) {
                 var deferred = $q.defer();
 

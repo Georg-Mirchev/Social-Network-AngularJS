@@ -1,11 +1,17 @@
 <div infinite-scroll='newsFeedPosts()' infinite-scroll-disabled='isScrollPaused'
      infinite-scroll-distance='0.01'>
     <div class="newsFeedPost" ng-repeat='post in posts'>
-        <a href="#/users/{{post.author.username}}">
+        <a href="#/users/{{post.author.username}}"
+           ng-mouseover="hoverBox(post.author.username)"
+           ns-popover ns-popover-template="templates/hoverBox.html"
+           ns-popover-trigger="mouseenter" ns-popover-timeout="0.5" ns-popover-placement="bottom">
+
             <img ng-src="{{post.author.profileImageData || 'resources/defaultProfilePicture.jpg'}}"/>
             <span>{{post.author.name}}</span>
         </a>
-        <a href="#/users/{{post.wallOwner.username}}">
+        <a href="#/users/{{post.wallOwner.username}}"
+           ng-mouseover="hoverBox(post.wallOwner.username)" ns-popover ns-popover-template="templates/hoverBox.html"
+           ns-popover-trigger="mouseenter" ns-popover-timeout="0.5" ns-popover-placement="bottom">
             <img ng-src="{{post.wallOwner.profileImageData || 'resources/defaultProfilePicture.jpg'}}"/>
             <span>{{post.wallOwner.name}}</span>
         </a>

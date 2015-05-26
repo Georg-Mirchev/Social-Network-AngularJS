@@ -104,6 +104,11 @@ header h3 {
     border: 1px solid #ccc;
 }
 
+.comment img {
+    max-width: 50px;
+    max-height: 50px;
+}
+
 .friends {
     display: block;
     float: left;
@@ -121,6 +126,15 @@ header h3 {
 #posts {
     width: 50%;
     float: left;
+}
+
+.hover {
+    background-color: #ccc;
+}
+
+.hover img {
+    max-width: 50px;
+    max-height: 50px;
 }
 
 .clear {
