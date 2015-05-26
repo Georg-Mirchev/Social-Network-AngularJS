@@ -1,12 +1,14 @@
-<div>
-    <a href="#/users/{{routeUsername}}/friends">
+<div ng-if="isFriend">
+    <a href="{{friendsPreviewList.friendsUrl}}">
         Friends - {{friendsPreviewList.totalCount}} total.</a>
     <ul>
         <li class="friends" ng-repeat="friend in friendsPreviewList.friends">
-            <img class="profileImageSearch"
-                 ng-src="{{friend.profileImageData || 'resources/defaultProfilePicture.jpg'}}"/>
-            {{friend.name}}
+            <a href="#/users/{{friend.username}}">
+                <img class="profileImageSearch"
+                     ng-src="{{friend.profileImageData || 'resources/defaultProfilePicture.jpg'}}"/>
+                {{friend.name}}
+            </a>
         </li>
     </ul>
+    <div class="clear"></div>
 </div>
-<div class="clear"></div>

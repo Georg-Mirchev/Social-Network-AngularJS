@@ -1,11 +1,13 @@
-<div ng-init="getFriends()">
+<div ng-if="authService.isLoggedIn()" ng-init="getFriends()">
     <h4>Friends {{friendsList.length}} total.</h4>
     <input type="text" placeholder="search friend by name" ng-model="filterFriends.name">
     <ul>
         <li class="friends" ng-repeat="friend in friendsList | filter: filterFriends">
-            <img class="profileImageSearch"
-                 ng-src="{{friend.profileImageData || 'resources/defaultProfilePicture.jpg'}}"/>
-            {{friend.name}}
+            <a href="#/users/{{friend.username}}">
+                <img class="profileImageSearch"
+                     ng-src="{{friend.profileImageData || 'resources/defaultProfilePicture.jpg'}}"/>
+                {{friend.name}}
+            </a>
         </li>
     </ul>
 </div>
