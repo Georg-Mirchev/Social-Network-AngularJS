@@ -1,4 +1,4 @@
-<div ng-if="post.totalCommentsCount > 0" id="comments" ng-controller="CommentsController">
+<div ng-if="post.totalCommentsCount >= 0" id="comments" ng-controller="CommentsController">
     <a href="" ng-if="post.totalCommentsCount - post.comments.length > 0" ng-hide="isHidden"
        ng-click="showAllComments(post); isHidden = true">
         Show All {{post.totalCommentsCount}} Comments</a>
@@ -6,14 +6,19 @@
     <div class="comment" ng-repeat="comment in post.comments | orderBy: 'id'">
         <div>{{comment.author.name}}: {{comment.commentContent}}</div>
         <div>{{dateFromNow(comment.date)}}</div>
-        <a ng-if="!comment.liked" href="" ng-click="likeComment(post, comment)">Like</a>
-        <a ng-if="comment.liked" href="" ng-click="unlikeComment(post, comment)">Unlike</a>
+
+        <div ng-if="isFriend || post.author.isFriend || post.wallOwner.isFriend">
+            <a ng-if="!comment.liked" href="" ng-click="likeComment(post, comment)">Like</a>
+            <a ng-if="comment.liked" href="" ng-click="unlikeComment(post, comment)">Unlike</a>
+        </div>
 
         <div>Likes: {{comment.likesCount}}</div>
     </div>
 
-    <form name="addCommentForm" ng-submit="addComment(post, commentData)">
-        <textarea ng-model="commentData.commentContent" minlength="2" required></textarea>
-        <button type="submit">Comment</button>
-    </form>
+    <div ng-if="isFriend || post.author.isFriend || post.wallOwner.isFriend">
+        <form name="addCommentForm" ng-submit="addComment(post, commentData)">
+            <textarea id="commentContent" ng-model="commentData.commentContent" minlength="2" required></textarea>
+            <button type="submit">Comment</button>
+        </form>
+    </div>
 </div>

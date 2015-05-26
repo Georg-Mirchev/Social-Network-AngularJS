@@ -1,9 +1,18 @@
 <div ng-if="authService.isLoggedIn()">
     <div id="userHeader" ng-include="'templates/userHeader.html'"></div>
 
-    <div>Comment box</div>
-    <div id="posts" ng-include="'templates/userPosts.html'" ng-controller="PostsController"></div>
+    <div ng-controller="PostsController">
+        <form ng-if="isFriend" ng-submit="addPost(postData.postContent, userFullData.username)">
+            <textarea id="postContent" ng-model="postData.postContent" placeholder="Write something..." cols="30" rows="10"></textarea>
+            <button type="submit">Post</button>
+        </form>
 
-    <div ng-if="isFriend" id="friendsPreview" ng-include="'templates/friendsPreview.html'" ng-controller="FriendsController"
+        <div id="posts" ng-include="'templates/userPosts.html'"></div>
+
+    </div>
+
+    <div ng-if="isFriend" id="friendsPreview" ng-include="'templates/friendsPreview.html'"
+         ng-controller="FriendsController"
          ng-init="getFriendsPreview()"></div>
 </div>
+<div class="clear"></div>

@@ -15,9 +15,11 @@
         <div id="searchResults" ng-show="showSearchResults">
             <ul>
                 <li ng-repeat="searchResult in searchObj">
-                    <img class="profileImageSearch"
-                         ng-src="{{searchResult.profileImageData || 'resources/defaultProfilePicture.jpg'}}"/>
-                    {{searchResult.name}}
+                    <a href="#/users/{{searchResult.username}}">
+                        <img class="profileImageSearch"
+                             ng-src="{{searchResult.profileImageData || 'resources/defaultProfilePicture.jpg'}}"/>
+                        {{searchResult.name}}
+                    </a>
                 </li>
             </ul>
             <span ng-if="searchObj">{{searchObj.length}} results total</span>

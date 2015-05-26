@@ -1,15 +1,21 @@
 <div infinite-scroll='userPosts()' infinite-scroll-disabled='isScrollPaused'
      infinite-scroll-distance='0.01'>
     <div class="newsFeedPost" ng-repeat='post in posts'>
-        <img ng-src="{{post.author.profileImageData || 'resources/defaultProfilePicture.jpg'}}"/>
-        <span>{{post.author.name}}</span>
-        <img ng-src="{{post.wallOwner.profileImageData || 'resources/defaultProfilePicture.jpg'}}"/>
-        <span>{{post.wallOwner.name}}</span>
+        <a href="#/users/{{post.author.username}}">
+            <img ng-src="{{post.author.profileImageData || 'resources/defaultProfilePicture.jpg'}}"/>
+            <span>{{post.author.name}}</span>
+        </a>
+        <a href="#/users/{{post.wallOwner.username}}">
+            <img ng-src="{{post.wallOwner.profileImageData || 'resources/defaultProfilePicture.jpg'}}"/>
+            <span>{{post.wallOwner.name}}</span>
+        </a>
 
         <div>{{post.postContent}}</div>
         <div>{{dateFromNow(post.date)}}</div>
-        <a ng-if="!post.liked" href="" ng-click="likePost(post)">Like</a>
-        <a ng-if="post.liked" href="" ng-click="unlikePost(post)">Unlike</a>
+        <div ng-if="isFriend || post.author.isFriend || post.wallOwner.isFriend">
+            <a ng-if="!post.liked" href="" ng-click="likePost(post)">Like</a>
+            <a ng-if="post.liked" href="" ng-click="unlikePost(post)">Unlike</a>
+        </div>
 
         <div>Likes: {{post.likesCount}}</div>
 

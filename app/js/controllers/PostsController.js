@@ -45,6 +45,23 @@ socialNetworkApp.controller('PostsController',
                 });
         };
 
+        $scope.addPost = function (data, username) {
+            var postContent = {
+                postContent: data,
+                username: username
+            };
+
+            postsService.addPost(postContent)
+                .then(function (data) {
+                    $('#postContent').val('');
+                    $scope.posts.unshift(data);
+                    Notification.success('Post successfully added.');
+                }, function (error) {
+                    $scope.postData.postContent = "";
+                    Notification.error(error.message);
+                })
+        };
+
         $scope.dateFromNow = function (date) {
             return moment(date).add(3, 'hours').fromNow();
         };
@@ -55,6 +72,8 @@ socialNetworkApp.controller('PostsController',
                     post.liked = true;
                     post.likesCount++;
                     Notification.success('Post liked successfully.')
+                }, function (error) {
+                    Notification.error("You can't like this.");
                 })
         };
 
@@ -64,6 +83,8 @@ socialNetworkApp.controller('PostsController',
                     post.liked = false;
                     post.likesCount--;
                     Notification.success('Post unliked successfully.')
+                }, function (error) {
+                    Notification.error("You can't like this.");
                 })
         }
     });

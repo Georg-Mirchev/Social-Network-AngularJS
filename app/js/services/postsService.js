@@ -36,6 +36,21 @@ socialNetworkApp.factory('postsService',
                 return deferred.promise;
             },
 
+            addPost: function (postContent) {
+                var url = BASE_URL + '/posts';
+
+                var deferred = $q.defer();
+                $http.post(url, postContent)
+                    .success(function (data) {
+                        deferred.resolve(data);
+                    })
+                    .error(function (error) {
+                        deferred.reject(error)
+                    });
+
+                return deferred.promise;
+            },
+
             likePost: function (postId) {
                 var url = BASE_URL + '/Posts/' + postId + '/likes';
 

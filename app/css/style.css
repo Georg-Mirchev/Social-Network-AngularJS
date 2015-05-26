@@ -39,6 +39,11 @@ header h3 {
     width: 200px;
 }
 
+#userHeader {
+    padding: 5px;
+    border: 1px solid #ccc;
+}
+
 #changePasswordForm {
     border: 1px solid #ccc;
     padding: 10px;

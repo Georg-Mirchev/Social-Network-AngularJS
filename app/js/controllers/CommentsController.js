@@ -15,7 +15,7 @@ socialNetworkApp.controller('CommentsController',
         $scope.addComment = function (post, commentData) {
             commentsService.addComment(post.id, commentData)
                 .then(function (data) {
-                    $scope.commentData.commentContent = "";
+                    $('#commentContent').val('');
                     post.comments.push(data);
                     post.totalCommentsCount++;
                     Notification.success('Comment added successfully!')
