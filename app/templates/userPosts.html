@@ -1,0 +1,20 @@
+<div infinite-scroll='userPosts()' infinite-scroll-disabled='isScrollPaused'
+     infinite-scroll-distance='0.01'>
+    <div class="newsFeedPost" ng-repeat='post in posts'>
+        <img ng-src="{{post.author.profileImageData || 'resources/defaultProfilePicture.jpg'}}"/>
+        <span>{{post.author.name}}</span>
+        <img ng-src="{{post.wallOwner.profileImageData || 'resources/defaultProfilePicture.jpg'}}"/>
+        <span>{{post.wallOwner.name}}</span>
+
+        <div>{{post.postContent}}</div>
+        <div>{{dateFromNow(post.date)}}</div>
+        <a ng-if="!post.liked" href="" ng-click="likePost(post)">Like</a>
+        <a ng-if="post.liked" href="" ng-click="unlikePost(post)">Unlike</a>
+
+        <div>Likes: {{post.likesCount}}</div>
+
+        <div ng-include="'templates/comment.html'"></div>
+
+    </div>
+    <div>{{postsMessage}}</div>
+</div>

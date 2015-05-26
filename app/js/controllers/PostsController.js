@@ -1,7 +1,7 @@
 'use strict';
 
 socialNetworkApp.controller('PostsController',
-    function PostsController($scope, PAGE_SIZE, postsService, Notification) {
+    function PostsController($scope, $routeParams, PAGE_SIZE, postsService, Notification, authService) {
 
         var lastPostId = '';
         $scope.posts = [];
@@ -24,6 +24,27 @@ socialNetworkApp.controller('PostsController',
                 }, function (error) {
                     Notification.error(error.message);
                 })
+        };
+
+        $scope.userPosts = function () {
+            if ($scope.isScrollPaused) return;
+            $scope.isScrollPaused = true;
+
+            if (authService.getCurrentUser()) {
+                postsService.getUserPosts(PAGE_SIZE, lastPostId, $routeParams.username)
+                    .then(function (data) {
+                        $scope.posts = $scope.posts.concat(data);
+                        if (data.length > 0) {
+                            $scope.isScrollPaused = false;
+                            lastPostId = data[data.length - 1].id;
+                        } else {
+                            $scope.isScrollPaused = true;
+                            $scope.postsMessage = 'No more posts.';
+                        }
+                    }, function (error) {
+                        Notification.error(error.message);
+                    })
+            }
         };
 
         $scope.dateFromNow = function (date) {

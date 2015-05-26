@@ -20,6 +20,18 @@ var socialNetworkApp = angular
                     }
                 }
             })
+            .when('/users/:username', {
+                templateUrl: 'templates/userProfile.html',
+                controller: 'UserProfileController',
+                resolve: {
+                    isLoggedIn: isLoggedIn,
+                    getUserFullData: function (authService, userService, $route) {
+                        if (authService.isLoggedIn()) {
+                            return userService.getDataAboutUser($route.current.params.username)
+                        }
+                    }
+                }
+            })
             .when('/users/:username/friends', {
                 templateUrl: 'templates/friends.html',
                 controller: 'FriendsController',

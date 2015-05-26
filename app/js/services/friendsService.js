@@ -44,6 +44,20 @@ socialNetworkApp.factory('friendsService',
                     });
 
                 return deferred.promise;
+            },
+
+            getUserFriendsPreview: function (username) {
+                var deferred = $q.defer();
+
+                $http.get(BASE_URL + '/users/' + username + '/friends/preview')
+                    .success(function (data) {
+                        deferred.resolve(data);
+                    })
+                    .error(function (error) {
+                        deferred.reject(error);
+                    });
+
+                return deferred.promise;
             }
         };
     });

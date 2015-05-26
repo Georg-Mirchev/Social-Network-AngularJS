@@ -1,5 +1,5 @@
 <div>
-    <a href="#/users/{{authService.getCurrentUser().userName}}/friends">
+    <a href="#/users/{{routeUsername}}/friends">
         Friends - {{friendsPreviewList.totalCount}} total.</a>
     <ul>
         <li class="friends" ng-repeat="friend in friendsPreviewList.friends">

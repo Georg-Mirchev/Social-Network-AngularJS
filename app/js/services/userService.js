@@ -3,13 +3,27 @@
 socialNetworkApp.factory('userService',
     function userService($http, $q, BASE_URL) {
 
-        var serviceUrl = BASE_URL + '/me';
+        var serviceUrl = BASE_URL;
 
         return {
             getDataAboutMe: function () {
                 var deferred = $q.defer();
 
-                $http.get(serviceUrl)
+                $http.get(serviceUrl + '/me')
+                    .success(function (data) {
+                        deferred.resolve(data);
+                    })
+                    .error(function (error) {
+                        deferred.reject(error);
+                    });
+
+                return deferred.promise;
+            },
+
+            getDataAboutUser: function (username) {
+                var deferred = $q.defer();
+
+                $http.get(serviceUrl + '/users/' + username)
                     .success(function (data) {
                         deferred.resolve(data);
                     })
@@ -23,7 +37,7 @@ socialNetworkApp.factory('userService',
             editProfile: function (userData) {
                 var deferred = $q.defer();
 
-                $http.put(serviceUrl, userData)
+                $http.put(serviceUrl + '/me', userData)
                     .success(function (data) {
                         deferred.resolve(data);
                     })
@@ -37,7 +51,7 @@ socialNetworkApp.factory('userService',
             changePassword: function (userData) {
                 var deferred = $q.defer();
 
-                $http.put(serviceUrl + '/changepassword', userData)
+                $http.put(serviceUrl + '/me' + '/changepassword', userData)
                     .success(function (data) {
                         deferred.resolve(data);
                     })

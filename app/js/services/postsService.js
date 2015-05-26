@@ -5,8 +5,24 @@ socialNetworkApp.factory('postsService',
 
         return {
             getPosts: function (pageSize, lastPostId) {
-                var url = BASE_URL + '/me/feed?StartPostId=' + lastPostId
-                    + '&PageSize=' + pageSize;
+                var url = BASE_URL + '/me/feed?StartPostId=' + lastPostId +
+                    '&PageSize=' + pageSize;
+
+                var deferred = $q.defer();
+                $http.get(url)
+                    .success(function (data) {
+                        deferred.resolve(data);
+                    })
+                    .error(function (error) {
+                        deferred.reject(error)
+                    });
+
+                return deferred.promise;
+            },
+
+            getUserPosts: function (pageSize, lastPostId, username) {
+                var url = BASE_URL + '/users/' + username + '/wall?StartPostId=' + lastPostId +
+                    '&PageSize=' + pageSize;
 
                 var deferred = $q.defer();
                 $http.get(url)

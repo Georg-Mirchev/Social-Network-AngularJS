@@ -3,6 +3,7 @@
 
 <span ng-if="authService.isLoggedIn()">
     <a href="" ng-click="routeReload()">Home</a>
+    <a href="#/users/{{authService.getCurrentUser().userName}}">Profile</a>
     <a href="#/users/{{authService.getCurrentUser().userName}}/friends">Friends</a>
     <a href="#/profile/password">Change Password</a>
     <a href="#/profile">Edit Profile</a>
