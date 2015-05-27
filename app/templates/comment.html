@@ -4,8 +4,9 @@
         Show All {{post.totalCommentsCount}} Comments</a>
 
     <div class="comment" ng-repeat="comment in post.comments | orderBy: 'id'">
-        <a href="#/users/{{comment.author.username}}"
-           ng-mouseover="hoverBox(comment.author.username)" ns-popover ns-popover-template="templates/hoverBox.html"
+        <a ng-controller="HoverController" href="#/users/{{comment.author.username}}"
+           hover-intent="hoverBox(comment.author.username)"
+           ns-popover ns-popover-template="templates/hoverBox.html"
              ns-popover-trigger="mouseenter" ns-popover-timeout="0.5" ns-popover-placement="bottom">
             <img ng-src="{{comment.author.profileImageData || 'resources/defaultProfilePicture.jpg'}}"/>
             {{comment.author.name}}: </a>

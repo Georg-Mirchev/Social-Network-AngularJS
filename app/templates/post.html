@@ -4,17 +4,21 @@
         <button ng-if="post.author.username == authService.getCurrentUser().userName" ng-click="deletePost(post)">Delete</button>
         <button ng-if="post.author.username == authService.getCurrentUser().userName" ng-click="post.editing = true"
                 ng-hide="post.editing">Edit</button>
-        <a href="#/users/{{post.author.username}}"
-           ng-mouseover="hoverBox(post.author.username)"
+
+        <a ng-controller="HoverController" href="#/users/{{post.author.username}}"
+           hover-intent="hoverBox(post.author.username)"
            ns-popover ns-popover-template="templates/hoverBox.html"
            ns-popover-trigger="mouseenter" ns-popover-timeout="0.5" ns-popover-placement="bottom">
 
             <img ng-src="{{post.author.profileImageData || 'resources/defaultProfilePicture.jpg'}}"/>
             <span>{{post.author.name}}</span>
         </a>
-        <a href="#/users/{{post.wallOwner.username}}"
-           ng-mouseover="hoverBox(post.wallOwner.username)" ns-popover ns-popover-template="templates/hoverBox.html"
+
+        <a ng-controller="HoverController" href="#/users/{{post.wallOwner.username}}"
+           hover-intent="hoverBox(post.wallOwner.username)"
+           ns-popover ns-popover-template="templates/hoverBox.html"
            ns-popover-trigger="mouseenter" ns-popover-timeout="0.5" ns-popover-placement="bottom">
+
             <img ng-src="{{post.wallOwner.profileImageData || 'resources/defaultProfilePicture.jpg'}}"/>
             <span>{{post.wallOwner.name}}</span>
         </a>

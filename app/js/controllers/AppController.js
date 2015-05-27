@@ -12,18 +12,4 @@ socialNetworkApp.controller('AppController',
         if (sessionStorage.currentUser != undefined) {
             $http.defaults.headers.common.Authorization = 'Bearer ' + authService.getCurrentUser().access_token;
         }
-
-        $scope.hoverBox = function (username) {
-            setTimeout(function () {
-                userService.getUserPreviewData(username)
-                    .then(function (data) {
-                        $scope.userPreviewData = data;
-                        setTimeout(function () {
-                            $scope.userPreviewData = '';
-                        }, 500);
-                    }, function (error) {
-                        console.log(error);
-                    })
-            }, 500)
-        };
     });

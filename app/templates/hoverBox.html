@@ -1,8 +1,7 @@
-<div ng-if="userPreviewData.username != authService.getCurrentUser().userName" class="hover" ng-show="userPreviewData">
+<div ng-controller="HoverController" ng-if="userPreviewData && userPreviewData.username != authService.getCurrentUser().userName" class="hover">
     <img ng-src="{{userPreviewData.profileImageData || 'resources/defaultProfilePicture.jpg'}}"/>
     <div>{{userPreviewData.name}}</div>
     <button ng-if="!userPreviewData.isFriend && !userPreviewData.hasPendingRequest" ng-click="sendFriendRequest()">Send friend request</button>
     <button ng-if="!userPreviewData.isFriend && userPreviewData.hasPendingRequest">Friend request pending</button>
     <button ng-if="userPreviewData.isFriend && userPreviewData.username" disabled>Friend</button>
 </div>
-
