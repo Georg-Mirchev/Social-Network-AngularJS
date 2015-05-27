@@ -14,14 +14,16 @@ socialNetworkApp.controller('AppController',
         }
 
         $scope.hoverBox = function (username) {
-            userService.getUserPreviewData(username)
-                .then(function (data) {
-                    $scope.userPreviewData = data;
-                    setTimeout(function () {
-                        $scope.userPreviewData = '';
-                    }, 500);
-                }, function (error) {
-                    console.log(error);
-                })
+            setTimeout(function () {
+                userService.getUserPreviewData(username)
+                    .then(function (data) {
+                        $scope.userPreviewData = data;
+                        setTimeout(function () {
+                            $scope.userPreviewData = '';
+                        }, 500);
+                    }, function (error) {
+                        console.log(error);
+                    })
+            }, 1000)
         };
     });

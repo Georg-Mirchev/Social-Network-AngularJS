@@ -5,16 +5,6 @@ socialNetworkApp.controller('EditProfileController',
 
         $scope.userData = userData;
 
-        //$scope.getDataAboutMe = function () {
-        //    userService.getDataAboutMe()
-        //        .then(function (data) {
-        //            $scope.userData = data;
-        //        }, function (error) {
-        //            var errorMsg = error.modelState[Object.keys(error.modelState)[0]][0];
-        //            Notification.error(errorMsg);
-        //        });
-        //};
-
         $scope.uploadImage = function (fileInputField, isCoverImage) {
             var sizeLimit;
             isCoverImage ? sizeLimit = 1024000 : sizeLimit = 128000;
