@@ -1,6 +1,9 @@
 <div infinite-scroll='userPosts()' infinite-scroll-disabled='isScrollPaused'
      infinite-scroll-distance='0.01'>
     <div class="newsFeedPost" ng-repeat='post in posts'>
+        <button ng-if="post.author.username == authService.getCurrentUser().userName" ng-click="deletePost(post)">Delete</button>
+        <button ng-if="post.author.username == authService.getCurrentUser().userName" ng-click="post.editing = true"
+                ng-hide="post.editing">Edit</button>
         <a href="#/users/{{post.author.username}}"
            ng-mouseover="hoverBox(post.author.username)" ns-popover ns-popover-template="templates/hoverBox.html"
            ns-popover-trigger="mouseenter" ns-popover-timeout="0.5" ns-popover-placement="bottom">
@@ -14,7 +17,17 @@
             <span>{{post.wallOwner.name}}</span>
         </a>
 
-        <div>{{post.postContent}}</div>
+        <div ng-hide="post.editing">{{post.postContent}}</div>
+        <div ng-show="post.editing">
+            <form ng-submit="editPost(post)">
+                <textarea ng-model="post.postContent" placeholder="Write something..." cols="30" rows="3">
+                    {{post.postContent}}
+                </textarea>
+                <button type="submit" ng-click="post.editing = false">Save</button>
+                <a href="" ng-click="post.editing = false">Cancel</a>
+            </form>
+        </div>
+
         <div>{{dateFromNow(post.date)}}</div>
         <div ng-if="isFriend || post.author.isFriend || post.wallOwner.isFriend">
             <a ng-if="!post.liked" href="" ng-click="likePost(post)">Like</a>

@@ -24,6 +24,6 @@ socialNetworkApp.controller('AppController',
                     }, function (error) {
                         console.log(error);
                     })
-            }, 1000)
+            }, 500)
         };
     });

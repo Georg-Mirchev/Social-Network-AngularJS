@@ -57,8 +57,31 @@ socialNetworkApp.controller('PostsController',
                     $scope.posts.unshift(data);
                     Notification.success('Post successfully added.');
                 }, function (error) {
-                    $scope.postData.postContent = "";
+                    $('#postContent').val('');
                     Notification.error(error.message);
+                })
+        };
+
+        $scope.editPost = function (post) {
+
+            postsService.editPost(post)
+                .then(function (data) {
+                    post.postContent = data.content;
+                    Notification.success('Post edited successfully.');
+                }, function (error) {
+                    console.log(error);
+                    Notification.error('Failed editing post.');
+                })
+        };
+
+        $scope.deletePost = function (post) {
+            postsService.deletePost(post)
+                .then(function () {
+                    $scope.posts.splice($scope.posts.indexOf(post), 1);
+                    Notification.success('Post deleted successfully.');
+                }, function (error) {
+                    console.log(error);
+                    Notification.error('Failed deleting post.');
                 })
         };
 

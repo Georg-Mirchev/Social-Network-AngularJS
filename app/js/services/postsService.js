@@ -51,6 +51,36 @@ socialNetworkApp.factory('postsService',
                 return deferred.promise;
             },
 
+            editPost: function (post) {
+                var url = BASE_URL + '/Posts/' + post.id;
+
+                var deferred = $q.defer();
+                $http.put(url, post)
+                    .success(function (data) {
+                        deferred.resolve(data);
+                    })
+                    .error(function (error) {
+                        deferred.reject(error)
+                    });
+
+                return deferred.promise;
+            },
+
+            deletePost: function (post) {
+                var url = BASE_URL + '/Posts/' + post.id;
+
+                var deferred = $q.defer();
+                $http.delete(url)
+                    .success(function (data) {
+                        deferred.resolve(data);
+                    })
+                    .error(function (error) {
+                        deferred.reject(error)
+                    });
+
+                return deferred.promise;
+            },
+
             likePost: function (postId) {
                 var url = BASE_URL + '/Posts/' + postId + '/likes';
 
