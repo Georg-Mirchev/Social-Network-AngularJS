@@ -36,6 +36,36 @@ socialNetworkApp.factory('commentsService',
                 return deferred.promise;
             },
 
+            editComment: function (post, comment) {
+                var url = serviceUrl + post.id + '/comments/' + comment.id;
+
+                var deferred = $q.defer();
+                $http.put(url, comment)
+                    .success(function (data) {
+                        deferred.resolve(data);
+                    })
+                    .error(function (error) {
+                        deferred.reject(error)
+                    });
+
+                return deferred.promise;
+            },
+
+            deleteComment: function (postId, commentId) {
+                var url = serviceUrl + postId + '/comments/' + commentId;
+
+                var deferred = $q.defer();
+                $http.delete(url)
+                    .success(function (data) {
+                        deferred.resolve(data);
+                    })
+                    .error(function (error) {
+                        deferred.reject(error)
+                    });
+
+                return deferred.promise;
+            },
+
             likeComment: function (postId, commendId) {
                 var url = serviceUrl + postId + '/comments/' + commendId + '/likes';
 
