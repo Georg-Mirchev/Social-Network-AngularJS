@@ -36,6 +36,7 @@
   - [x] Add Post
   - [x] Edit Post
   - [x] Delete Post
+  - [x] Like/Unlike Posts
 
 ### Comments
   - [x] Add Comment
@@ -56,5 +57,6 @@
   - [x] User Authorization Checks
     - [x] Access only own news feed
     - [x] Post only on friends wall
-    - [x] Edit and delete own wall posts and comments
+    - [x] Comment only friends posts
+    - [x] Delete own wall posts and comments
     
