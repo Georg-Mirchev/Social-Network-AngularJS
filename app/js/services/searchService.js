@@ -7,7 +7,9 @@ socialNetworkApp.factory('searchService',
         return {
             searchUser: function (searchData) {
                 var deferred = $q.defer();
-                $http.get(serviceUrl + searchData)
+                $http.get(serviceUrl + searchData, {
+                    ignoreLoadingBar: true
+                })
                     .success(function (data) {
                         deferred.resolve(data)
                     })

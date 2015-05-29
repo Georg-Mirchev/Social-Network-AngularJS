@@ -1,3 +1,11 @@
+@import url(http://fonts.googleapis.com/css?family=Raleway:400,500,700);
+
+body {
+    margin: 0;
+    background-color: #e7ecea;
+    font-family: 'Raleway', Arial, sans-serif;
+}
+
 #wrapper {
     width: 970px;
     margin: 0 auto;
@@ -5,15 +13,64 @@
     margin-top: 20px;
 }
 
-header {
-    width: 1170px;
-    margin: 0 auto;
-    display: block;
-    border: 1px solid #ccc;
+#header {
+    color: #2CC185;
+    text-align: center;
+    font-size: 30px;
+    font-weight: bold;
 }
 
-header h3 {
+#text {
+    padding: 14px;
+}
+
+#text i {
+    font-size: 35px;
+    font-weight: bold;
+}
+
+header {
+    border-bottom: 1px solid #ccc;
+    background-color: rgba(40,44,42,0.05);
+}
+header > div > ul > li:first-child {
+    border-left: 1px solid #ccc;
+}
+
+header > div > ul > li {
+    background-color: #f7f7f7;
+    display: inline-block;
+    padding: 10px 29px;
+    border-right: 1px solid #ccc;
+    vertical-align: bottom;
+    float: left;
+    height: 43px;
     text-align: center;
+}
+
+header > div > ul > li:hover {
+    background-color: rgba(116, 119, 123, 0.01);
+}
+
+header > div > ul > li > a {
+    font-weight: bold;
+    color: #2CC185;
+    text-decoration: none;
+}
+
+header > div > ul > li > a > i {
+    display: block;
+}
+
+header i {
+    color: #2CC185;
+    font-size: 30px;
+}
+
+#nav {
+    width: 1170px;
+    margin-right: auto;
+    margin-left: auto;
 }
 
 #forms {
@@ -55,18 +112,35 @@ header h3 {
     display: block;
 }
 
+#search {
+    width: 100px;
+}
+
+#searchDiv {
+    display: block;
+}
+
+#searchDiv input {
+    width: 100px;
+}
+
 #searchResults {
     position: absolute;
-    left: 5px;
+    right: 5px;
+    text-align: left;
 }
 
 #friendRequests {
     position: absolute;
-    right: 5px;
+    top: 60px;
+    left: 5px;
 }
 
 ul {
     list-style-type: none;
+    -webkit-padding-start: 0px;
+    -webkit-margin-before: 0;
+    -webkit-margin-after: 0;
 }
 
 .profileImageSearch {
@@ -129,6 +203,7 @@ ul {
 #friendsPreview {
     border: 1px solid #ccc;
     width: 45%;
+    margin: 5px;
     float: right
 }
 
