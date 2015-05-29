@@ -17,8 +17,8 @@
 ### User Home Screen (news feed page)
   - [x] Dynamic Scrolling
   - [x] Search by Username
-  - [ ] Display Pending Requests
-  - [ ] Display Requests Details
+  - [ ] Display Pending Friend Requests
+  - [x] Display Friend Requests Details
   - [x] Display Top Friends with Images
   - [x] Display Posts by Friends (Feed)
   - [x] Display Post Data
