@@ -73,6 +73,17 @@ header i {
     margin-left: auto;
 }
 
+#badge {
+    padding: 2px 7px;
+    background-color: #DEDEDE;
+    border-radius: 50px;
+    font-size: 15px;
+    color: #2CC185;
+    position: absolute;
+    top: 15px;
+    left: 704px;
+}
+
 #forms {
     display: block;
 }
@@ -126,14 +137,20 @@ header i {
 
 #searchResults {
     position: absolute;
-    right: 5px;
+    top: 64px;
+    left: 738px;
     text-align: left;
+    border: 1px solid #ccc;
+    padding: 5px;
+    background-color: #ccc;
 }
 
 #friendRequests {
     position: absolute;
-    top: 60px;
-    left: 5px;
+    top: 64px;
+    left: 553px;
+    padding: 5px;
+    background-color: #ccc;
 }
 
 ul {

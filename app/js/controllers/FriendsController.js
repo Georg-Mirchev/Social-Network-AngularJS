@@ -67,7 +67,7 @@ socialNetworkApp.controller('FriendsController',
                         $scope.showRequests = true;
                         $timeout(function () {
                             $scope.showRequests = false;
-                        }, 5000)
+                        }, 3000)
                     }
                 }, function (error) {
                     Notification.error(error.message);
