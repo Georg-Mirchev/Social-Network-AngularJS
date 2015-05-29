@@ -6,7 +6,7 @@ socialNetworkApp.controller('HoverController',
                     $scope.userPreviewData = data;
                     setTimeout(function () {
                         $scope.userPreviewData = '';
-                    }, 500);
+                    }, 5000);
                 }, function (error) {
                     console.log(error);
                 })

@@ -58,6 +58,20 @@ socialNetworkApp.factory('friendsService',
                     });
 
                 return deferred.promise;
+            },
+
+            sendFriendRequest: function (username) {
+                var deferred = $q.defer();
+
+                $http.post(BASE_URL + '/me/requests/' + username)
+                    .success(function (data) {
+                        deferred.resolve(data);
+                    })
+                    .error(function (error) {
+                        deferred.reject(error);
+                    });
+
+                return deferred.promise;
             }
         };
     });

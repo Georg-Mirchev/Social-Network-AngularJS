@@ -43,4 +43,19 @@ socialNetworkApp.controller('FriendsController',
                         })
                 }
             };
+        
+        $scope.sendFriendRequest = function (userFullData) {
+            friendsService.sendFriendRequest(userFullData.username)
+                .then(function (data) {
+                    userFullData.hasPendingRequest = true;
+                    userFullData.status = 'pending';
+                    if (userFullData.username == $routeParams.username) {
+                        $scope.userFullData.hasPendingRequest = true;
+                        $scope.userFullData.status = 'pending';
+                    }
+                    Notification.success(data.message);
+                }, function (error) {
+                    Notification.error('Failed sending friend request.');
+                })
+        }
     });
