@@ -60,6 +60,15 @@ header h3 {
     left: 5px;
 }
 
+#friendRequests {
+    position: absolute;
+    right: 5px;
+}
+
+ul {
+    list-style-type: none;
+}
+
 .profileImageSearch {
     max-width: 50px;
     max-height: 50px;

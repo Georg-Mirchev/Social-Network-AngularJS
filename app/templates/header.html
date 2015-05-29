@@ -1,7 +1,7 @@
 <header>
     <h3>SoftUni Social Network</h3>
 
-<span ng-if="authService.isLoggedIn()">
+<span ng-if="authService.isLoggedIn()" ng-controller="FriendsController" ng-init="getFriendRequests()">
     <a href="" ng-click="routeReload()">Home</a>
     <a href="#/users/{{authService.getCurrentUser().userName}}">Profile</a>
     <a href="#/users/{{authService.getCurrentUser().userName}}/friends">Friends</a>
@@ -24,6 +24,22 @@
             </ul>
             <span ng-if="searchObj">{{searchObj.length}} results total</span>
         </div>
+    </span>
+
+    <a href="" ng-click="getFriendRequests(true)">Friend Requests <b>{{friendRequests.length}}</b></a>
+
+    <span ng-show="showRequests" id="friendRequests" ng-if="friendRequests.length > 0">
+        <ul>
+            <li ng-repeat="friendRequest in friendRequests">
+                <a href="#/users/{{friendRequest.user.username}}">
+                    <img class="profileImageSearch"
+                         ng-src="{{friendRequest.user.profileImageData || 'resources/defaultProfilePicture.jpg'}}"/>
+                    {{friendRequest.user.name}}
+                </a>
+                <button ng-click="approveFriendRequest(friendRequest)">Approve</button>
+                <button ng-click="rejectFriendRequest(friendRequest)">Reject</button>
+            </li>
+        </ul>
     </span>
 
     <span><b>Welcome, {{authService.getCurrentUser().userName}}</b></span>

@@ -72,6 +72,48 @@ socialNetworkApp.factory('friendsService',
                     });
 
                 return deferred.promise;
-            }
+            },
+
+            getFriendRequests: function () {
+                var deferred = $q.defer();
+
+                $http.get(BASE_URL + '/me/requests')
+                    .success(function (data) {
+                        deferred.resolve(data);
+                    })
+                    .error(function (error) {
+                        deferred.reject(error);
+                    });
+
+                return deferred.promise;
+            },
+
+            approveFriendRequest: function (request) {
+                var deferred = $q.defer();
+
+                $http.put(BASE_URL + '/me/requests/' + request.id + '?status=approved')
+                    .success(function (data) {
+                        deferred.resolve(data);
+                    })
+                    .error(function (error) {
+                        deferred.reject(error);
+                    });
+
+                return deferred.promise;
+            },
+
+            rejectFriendRequest: function (request) {
+                var deferred = $q.defer();
+
+                $http.put(BASE_URL + '/me/requests/' + request.id + '?status=rejected')
+                    .success(function (data) {
+                        deferred.resolve(data);
+                    })
+                    .error(function (error) {
+                        deferred.reject(error);
+                    });
+
+                return deferred.promise;
+            },
         };
     });
