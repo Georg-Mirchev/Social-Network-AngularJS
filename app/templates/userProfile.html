@@ -4,7 +4,7 @@
     <div ng-controller="PostsController">
         <form ng-if="isFriend" ng-submit="addPost(postData.postContent, userFullData.username)">
             <textarea id="postContent" ng-model="postData.postContent" placeholder="Write something..." cols="30" rows="10"></textarea>
-            <button type="submit">Post</button>
+            <button id="postButton" type="submit">Post</button>
         </form>
 
         <div id="posts" ng-include="'templates/userPosts.html'"></div>

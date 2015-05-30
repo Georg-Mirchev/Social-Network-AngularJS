@@ -1,6 +1,8 @@
 <div ng-if="isFriend">
-    <a href="{{friendsPreviewList.friendsUrl}}">
-        Friends - {{friendsPreviewList.totalCount}} total.</a>
+    <div id="friendsHeader">
+        <a href="{{friendsPreviewList.friendsUrl}}">
+            Friends - {{friendsPreviewList.totalCount}} total.</a>
+    </div>
     <ul>
         <li class="friends" ng-repeat="friend in friendsPreviewList.friends">
             <a href="#/users/{{friend.username}}">

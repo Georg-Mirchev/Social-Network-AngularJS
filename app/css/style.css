@@ -9,7 +9,6 @@ body {
 #wrapper {
     width: 970px;
     margin: 0 auto;
-    border: 1px solid #ccc;
     margin-top: 20px;
 }
 
@@ -32,6 +31,7 @@ body {
 header {
     border-bottom: 1px solid #ccc;
     background-color: rgba(40,44,42,0.05);
+    box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
 }
 header > div > ul > li:first-child {
     border-left: 1px solid #ccc;
@@ -81,7 +81,7 @@ header i {
     color: #2CC185;
     position: absolute;
     top: 15px;
-    left: 704px;
+    left: 44%;
 }
 
 #forms {
@@ -110,6 +110,26 @@ header i {
 #userHeader {
     padding: 5px;
     border: 1px solid #ccc;
+}
+
+.postHeader {
+    border: 1px solid #ccc;
+    border-radius: 2px;
+    background-color: rgba(44, 193, 133, 0.25);
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1), 0 0 1px rgba(0, 0, 0, 0.1) inset;
+}
+
+.postHeader img {
+    margin: 3px;
+}
+
+.buttons {
+    float: right;
+    margin: 5px;
+}
+
+.floatRight {
+    float: right;
 }
 
 #changePasswordForm {
@@ -145,12 +165,22 @@ header i {
     background-color: #ccc;
 }
 
+#searchResults a {
+    text-decoration: none;
+    color: #74777b;
+}
+
 #friendRequests {
     position: absolute;
     top: 64px;
     left: 553px;
     padding: 5px;
     background-color: #ccc;
+}
+
+#friendRequests a {
+    text-decoration: none;
+    color: #74777b;
 }
 
 ul {
@@ -163,18 +193,31 @@ ul {
 .profileImageSearch {
     max-width: 50px;
     max-height: 50px;
+    display: block;
+    margin-left: 36.5px;
 }
 
 .newsFeedPost {
-    min-height: 200px;
     border: 1px solid #ccc;
     margin: 5px;
     padding: 5px;
+    border-radius: 2px;
+    box-shadow:0 1px 1px rgba(0, 0, 0, 0.1), 0 0 40px rgba(0, 0, 0, 0.1) inset;
 }
 
 .newsFeedPost img {
     max-width: 50px;
     max-height: 50px;
+}
+
+.newsFeedPost a {
+    text-decoration: none;
+    color: #74777b;
+}
+
+.postContent {
+    margin: 10px;
+    font-weight: bold;
 }
 
 #editProfileForm {
@@ -196,17 +239,61 @@ ul {
     max-height: 150px;
 }
 
-#comments {
-    border: 1px solid #ccc;
+textarea {
+    resize: none;
+    background-color: rgba(255, 255, 255, 0.50);
+}
+
+#postContent {
+    width: 50%;
+    height: 50px;
+    margin: 3px;
+}
+
+
+
+#addCommentForm {
+    padding: 3px;
+    border-radius: 2px;
+    border-top: 1px solid #ccc;
+}
+
+#addCommentForm textarea{
+    width: 50%;
+    margin-left: 20%;
+}
+
+#addCommentForm button{
+    vertical-align: top;
+}
+
+#postButton {
+    vertical-align: top;
+    margin-top: 38px;
 }
 
 .comment {
+    padding: 5px;
+    margin: 5px 50px;
     border: 1px solid #ccc;
+    border-radius: 2px;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1), 0 0 1px rgba(0, 0, 0, 0.1) inset;
 }
 
 .comment img {
     max-width: 50px;
     max-height: 50px;
+}
+
+.commentHeader {
+    border: 1px solid #ccc;
+    border-radius: 2px;
+    background-color: rgba(44, 193, 133, 0.15);
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1), 0 0 1px rgba(0, 0, 0, 0.1) inset;
+}
+
+.commentHeader img {
+    margin: 3px;
 }
 
 .friends {
@@ -215,18 +302,42 @@ ul {
     margin: 3px;
     padding: 3px;
     border: 1px solid #ccc;
+    width: 115px;
+    box-shadow:0 1px 1px rgba(0, 0, 0, 0.1), 0 0 1px rgba(0, 0, 0, 0.1) inset;
+    border-radius: 2px;
+}
+
+.friends a {
+    text-decoration: none;
+    color: #74777b;
 }
 
 #friendsPreview {
     border: 1px solid #ccc;
-    width: 45%;
+    width: 40%;
     margin: 5px;
-    float: right
+    float: right;
+    text-align: center;
+    padding: 1px;
+    border-radius: 2px;
+}
+
+#friendsHeader {
+    background-color: rgba(44, 193, 133, 0.25);
+    padding: 10px;
+    box-shadow:0 1px 1px rgba(0, 0, 0, 0.1), 0 0 1px rgba(0, 0, 0, 0.1) inset;
+    border-radius: 2px;
+}
+
+#friendsPreview a {
+    text-decoration: none;
+    color: #74777b;
 }
 
 #posts {
-    width: 50%;
+    width: 58%;
     float: left;
+    border-radius: 2px;
 }
 
 .hover {
@@ -241,5 +352,3 @@ ul {
 .clear {
     clear: both;
 }
-
-
