@@ -115,6 +115,7 @@ header i {
 }
 
 #userHeader {
+    background-size: cover!important;
     padding: 5px;
     border: 1px solid #ccc;
     box-shadow: inset 0 -200px 200px -200px #000000;
@@ -214,6 +215,11 @@ ul {
     max-height: 50px;
     display: block;
     margin-left: 36.5px;
+}
+
+.profileImg {
+    max-width: 50px;
+    max-height: 50px;
 }
 
 .newsFeedPost {
