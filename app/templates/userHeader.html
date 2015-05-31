@@ -1,6 +1,5 @@
-<div>{{userFullData.name}}</div>
 <img ng-src="{{userFullData.profileImageData}}" id="profileImagePreview"/>
-<img ng-src="{{userFullData.coverImageData}}" id="coverImagePreview"/>
+<div id="userFullName">{{userFullData.name}}</div>
 <div ng-controller="FriendsController" ng-if="userFullData.username != authService.getCurrentUser().userName">
     <button ng-if="!userFullData.isFriend && !userFullData.hasPendingRequest" ng-click="sendFriendRequest(userFullData)">Send friend
         request

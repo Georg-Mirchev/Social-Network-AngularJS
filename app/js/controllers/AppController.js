@@ -1,7 +1,7 @@
 'use strict';
 
 socialNetworkApp.controller('AppController',
-    function AppController($scope, $http, $route, $location, authService, userService) {
+    function AppController($scope, $http, $route, $location, authService) {
         $scope.authService = authService;
 
         $scope.routeReload = function () {

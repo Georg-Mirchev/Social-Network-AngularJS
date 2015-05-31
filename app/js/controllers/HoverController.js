@@ -1,5 +1,8 @@
+'use strict';
+
 socialNetworkApp.controller('HoverController',
     function HoverController($scope, userService) {
+
         $scope.hoverBox = function (username) {
             userService.getUserPreviewData(username)
                 .then(function (data) {

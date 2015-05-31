@@ -1,7 +1,7 @@
 'use strict';
 
 socialNetworkApp.controller('LogoutController',
-    function LogoutController($scope, $http, $location, authService, Notification, $route) {
+    function LogoutController($scope, $location, authService, Notification, $route) {
 
         $scope.logout = function () {
             authService.logout()

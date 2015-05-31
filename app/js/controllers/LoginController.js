@@ -1,7 +1,7 @@
 'use strict';
 
 socialNetworkApp.controller('LoginController',
-    function LoginController($scope, $location, authService, Notification, $route) {
+    function LoginController($scope, authService, Notification, $route) {
 
         $scope.login = function (userData) {
             authService.login(userData)

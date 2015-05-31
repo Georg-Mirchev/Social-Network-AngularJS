@@ -4,6 +4,7 @@ body {
     margin: 0;
     background-color: #e7ecea;
     font-family: 'Raleway', Arial, sans-serif;
+    word-wrap: break-word;
 }
 
 #wrapper {
@@ -93,6 +94,9 @@ header i {
     float: left;
     padding: 10px;
     margin: 20px 0 0 25%;
+    text-align: center;
+    border-radius: 2px;
+    box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
 }
 
 #loginForm input {
@@ -104,12 +108,24 @@ header i {
     float: right;
     padding: 10px;
     margin: 20px 25% 20px 0;
-    width: 200px;
+    width: 220px;
+    text-align: center;
+    border-radius: 2px;
+    box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
 }
 
 #userHeader {
     padding: 5px;
     border: 1px solid #ccc;
+    box-shadow: inset 0 -200px 200px -200px #000000;
+}
+
+#userFullName {
+    color: #fff;
+    text-rendering: optimizelegibility;
+    text-shadow: 0 0 3px rgba(0,0,0,.8);
+    font-weight: bold;
+    font-size: 20px;
 }
 
 .postHeader {
@@ -137,6 +153,9 @@ header i {
     padding: 10px;
     margin: 20px 0 20px 40%;
     width: 180px;
+    text-align: center;
+    border-radius: 2px;
+    box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
 }
 
 #changePasswordForm input {
@@ -226,7 +245,10 @@ ul {
     margin: 0 auto;
     margin-top: 20px;
     margin-bottom: 20px;
-    width: 260px;
+    width: 270px;
+    text-align: center;
+    border-radius: 2px;
+    box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
 }
 
 #profileImagePreview {
@@ -297,12 +319,14 @@ textarea {
 }
 
 .friends {
+    text-align: center;
     display: block;
     float: left;
     margin: 3px;
     padding: 3px;
     border: 1px solid #ccc;
     width: 115px;
+    height: 100px;
     box-shadow:0 1px 1px rgba(0, 0, 0, 0.1), 0 0 1px rgba(0, 0, 0, 0.1) inset;
     border-radius: 2px;
 }
@@ -347,6 +371,13 @@ textarea {
 .hover img {
     max-width: 50px;
     max-height: 50px;
+}
+
+#loginForm input.ng-invalid.ng-dirty, #registerForm input.ng-invalid.ng-dirty {
+    background-color: rgba(255, 0, 0, 0.25);
+}
+#loginForm input.ng-valid.ng-dirty, #registerForm > input.ng-valid.ng-dirty {
+    background-color: rgba(0, 128, 0, 0.25);
 }
 
 .clear {

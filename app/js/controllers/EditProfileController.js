@@ -37,7 +37,6 @@ socialNetworkApp.controller('EditProfileController',
             userService.editProfile(userData)
                 .then(function (data) {
                     Notification.success(data.message);
-                    //location my profile
                     $location.path('/');
                 }, function (error) {
                     var errorMsg = error.modelState[Object.keys(error.modelState)[0]][0];

@@ -1,4 +1,4 @@
-<div ng-if="authService.isLoggedIn()" ng-init="getFriends()">
+<div ng-if="authService.isLoggedIn()" ng-init="getFriends()" ng-show="friendsList">
     <h4>Friends {{friendsList.length}} total.</h4>
     <input type="text" placeholder="search friend by name" ng-model="filterFriends.name">
     <ul>

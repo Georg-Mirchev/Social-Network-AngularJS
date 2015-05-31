@@ -1,17 +1,18 @@
 <div ng-if="authService.isLoggedIn()">
-    <div id="userHeader" ng-include="'templates/userHeader.html'"></div>
+    <div id="userHeader" ng-include="'templates/userHeader.html'" onload="isHeaderLoaded = true"
+         style="background: url('{{userFullData.coverImageData}}') no-repeat fixed center"></div>
+    <div ng-controller="PostsController" ng-show="isHeaderLoaded">
 
-    <div ng-controller="PostsController">
         <form ng-if="isFriend" ng-submit="addPost(postData.postContent, userFullData.username)">
-            <textarea id="postContent" ng-model="postData.postContent" placeholder="Write something..." cols="30" rows="10"></textarea>
+            <textarea id="postContent" ng-model="postData.postContent" placeholder="Write something..."></textarea>
             <button id="postButton" type="submit">Post</button>
         </form>
 
         <div id="posts" ng-include="'templates/userPosts.html'"></div>
-
     </div>
 
     <div ng-if="isFriend" id="friendsPreview" ng-include="'templates/friendsPreview.html'"
+         ng-show="friendsPreviewList"
          ng-controller="FriendsController"
          ng-init="getFriendsPreview()"></div>
 </div>

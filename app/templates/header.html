@@ -13,7 +13,7 @@
                     class="pe-7s-users"></i>Friends</a></li>
 
 
-            <li><a href="" ng-click="getFriendRequests(true)"><i class="pe-7s-add-user"></i>Friend Requests<span id="badge">{{friendRequests.length}}</span></a>
+            <li><a href="" ng-click="getFriendRequests(true)"><i class="pe-7s-add-user"></i>Friend Requests<span ng-show="friendRequests" id="badge">{{friendRequests.length}}</span></a>
             </li>
 
                 <span ng-show="showRequests" id="friendRequests" ng-if="friendRequests.length > 0">

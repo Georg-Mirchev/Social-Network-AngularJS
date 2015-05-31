@@ -1,7 +1,7 @@
 'use strict';
 
 socialNetworkApp.controller('UserProfileController',
-    function UserProfileController($scope, $routeParams, PAGE_SIZE, userService, authService, getUserFullData) {
+    function UserProfileController($scope, authService, getUserFullData) {
 
         $scope.userFullData = getUserFullData;
         if ($scope.userFullData) {

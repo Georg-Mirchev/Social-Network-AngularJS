@@ -1,7 +1,7 @@
 'use strict';
 
 socialNetworkApp.controller('PostsController',
-    function PostsController($scope, $routeParams, PAGE_SIZE, postsService, Notification, authService) {
+    function PostsController($scope, $routeParams, PAGE_SIZE, postsService, Notification) {
 
         var lastPostId = '';
         $scope.posts = [];
