@@ -1,7 +1,7 @@
 #Social-Network-AngularJS
 
 ## Web Design
-  - [ ] CSS3 Stylization 
+  - [x] CSS3 Stylization 
 
 ## AngularJS Project Structure
   - [x] High Quality Code
